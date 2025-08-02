@@ -32,6 +32,9 @@ main {
   font-weight: 600;
   font-size: 2em;
   color: #1190ff;
+  flex-grow: 1;
+  text-align: center;
+  margin: 0 20px;
 }
 
 .container-cabecalho img {
@@ -118,8 +121,10 @@ main {
 .container-contatos,
 .container-servicos-contactos,
 .animate-on-scroll,
-.container-quem-somos {
+footer {
   padding: 40px;
+}
+.container-quem-somos {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -161,8 +166,7 @@ main {
   color: white;
   margin-bottom: 40px;
 }
-.container-servicos h3,
-.container-contatos h3 {
+.container-servicos h3 {
   color: #ffffff;
   margin: 20px auto;
   padding: 20px;
@@ -173,17 +177,23 @@ main {
   text-align: left;
 }
 .container-contatos h3 {
-  text-align: center;
-  border-left: none;
+  color: #ffffff;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #08253f;
   border-top: 1px solid #1190ff;
   border-bottom: 1px solid #1190ff;
+  border-radius: 5px;
+  max-width: 600px;
+  text-align: center;
 }
 .container-servicos ul {
   list-style-position: inside;
   text-align: left;
-  max-width: 800px;
+  max-width: 780px;
   margin: 0 auto;
   padding-left: 20px;
+  display: inline-block;
 }
 .container-servicos li {
   margin: 15px 0;
@@ -229,6 +239,128 @@ footer.animate-footer {
   padding: 20px;
   text-align: center;
   color: #7cc2ff;
+}
+
+.chatbot-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+}
+#chatbot-toggle {
+  background-color: #1190ff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 28px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+#chatbot-toggle:hover {
+  transform: scale(1.1);
+}
+#chatbot-window {
+  display: none;
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 350px;
+  max-width: 90vw;
+  height: 450px;
+  background-color: #061f35;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #06345d;
+}
+#chatbot-window.active {
+  display: flex;
+}
+.chatbot-header {
+  background-color: #04233f;
+  color: white;
+  padding: 15px;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  flex-shrink: 0;
+}
+#close-chatbot {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+#close-chatbot:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+.chatbot-messages {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.chatbot-messages .message {
+  padding: 10px 15px;
+  border-radius: 18px;
+  max-width: 75%;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+.chatbot-messages .user-message {
+  background-color: #1190ff;
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+.chatbot-messages .bot-message {
+  background-color: #08253f;
+  color: #bfe2ff;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+.chatbot-input-container {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #06345d;
+  background-color: #04233f;
+}
+#chatbot-input {
+  flex-grow: 1;
+  border: none;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: #05192a;
+  color: white;
+  outline: none;
+  margin-right: 10px;
+}
+#chatbot-send {
+  background: none;
+  border: none;
+  color: #1190ff;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0 10px;
+  transition: transform 0.2s ease;
+}
+#chatbot-send:hover {
+  transform: scale(1.1);
 }
 
 @media (max-width: 768px) {
@@ -294,12 +426,19 @@ footer.animate-footer {
   .botoes-servicos-contactos {
     flex-direction: column;
   }
-  .container-servicos h3,
-  .container-contatos h3 {
+  .container-servicos h3 {
     text-align: center;
+    border-left: none;
+    border-top: 3px solid #1190ff;
+    padding-top: 20px;
   }
   .container-servicos ul {
     padding-left: 0;
     text-align: center;
+  }
+  .container-contatos h3 {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

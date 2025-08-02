@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inteligência Artificial - Contatos</title>
-    <link rel="stylesheet" href="./assets/css/estilos.css">
-    <link rel="shortcut icon" href="./assets/images/logo_empresa.png" type="image/png">
+    <link rel="stylesheet" href="./css/estilos.css">
+    <link rel="shortcut icon" href="./images/logo_empresa.png" type="image/png">
 </head>
 
 <body>
     <header class="container-cabecalho">
         <a href="./index.html">
-            <img src="./assets/images/logo_empresa.png" alt="Logo da empresa" title="Inteligência artificial">
+            <img src="./images/logo_empresa.png" alt="Logo da empresa" title="Inteligência artificial">
         </a>
         <h3>Inteligência Artificial</h3>
         <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
@@ -24,18 +24,18 @@
     <nav class="container-navegacao" id="nav-menu">
         <button id="close-menu-btn" class="close-menu-btn" aria-label="Fechar menu">&times;</button>
         <ul class="nav-menu">
-            <li><a href="./index.html">Quem somos</a></li>
-            <li><a href="./servicos.html">Nossos Serviços</a></li>
-            <li><a href="./contatos.html">Contatos</a></li>
+            <li><a href="index.html">Quem somos</a></li>
+            <li><a href="servico.html">Nossos Serviços</a></li>
+            <li><a href="contatos.html">Contatos</a></li>
         </ul>
     </nav>
 
     <main>
         <section class="container-contatos">
             <h1 class="animate-on-scroll">Contatos</h1>
-            <h3 class="animate-on-scroll">Email: ia.gmail.com</h3>
-            <h3 class="animate-on-scroll">Telefone: +55 71 91234-5678</h3>
-            <h3 class="animate-on-scroll">Localidade: Rua da Tecnologia, 123 - Salvador, BA</h3>
+            <h3 class="animate-on-scroll"> gmail@ia.com</h3>
+            <h3 class="animate-on-scroll"> +55 71 91234-5678</h3>
+            <h3 class="animate-on-scroll"> Rua da Tecnologia, 123 - Salvador, BA</h3>
         </section>
     </main>
 
@@ -43,7 +43,24 @@
         Inteligência Artificial &copy; 2025 | &reg; Todos os direitos reservados.
     </footer>
 
-    <script src="./assets/script/index.js"></script>
+    <div class="chatbot-container">
+        <div id="chatbot-window">
+            <div class="chatbot-header">
+                <span>Assistente de IA</span>
+                <button id="close-chatbot">&times;</button>
+            </div>
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="message bot-message">Olá! 👋 Como posso ajudar você hoje?</div>
+            </div>
+            <div class="chatbot-input-container">
+                <input type="text" id="chatbot-input" placeholder="Digite sua mensagem...">
+                <button id="chatbot-send" aria-label="Enviar mensagem">&#10148;</button>
+            </div>
+        </div>
+        <button id="chatbot-toggle" aria-label="Abrir chat">🤖</button>
+    </div>
+
+    <script src="./script/script.js"></script>
 </body>
 
 </html>
