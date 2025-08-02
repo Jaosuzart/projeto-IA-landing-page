@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inteligência Artificial - Serviços</title>
+    <title>Inteligência Artificial - Nossos Serviços</title>
     <link rel="stylesheet" href="./css/estilos.css">
     <link rel="shortcut icon" href="./images/logo_empresa.png" type="image/png">
 </head>
@@ -31,35 +31,28 @@
     </nav>
 
     <main>
-        <section class="container-servicos">
-            <h1>Os nossos serviços</h1>
+        <section class="container-servicos animate-on-scroll">
+            <h1>Nossos Serviços</h1>
+            <h3>Soluções de Machine Learning</h3>
+            <ul>
+                <li>Análise preditiva para otimização de processos.</li>
+                <li>Sistemas de recomendação personalizados.</li>
+                <li>Modelos de classificação e clusterização de dados.</li>
+            </ul>
 
-            <article class="animate-on-scroll">
-                <h3>Projetamos o futuro do seu negócio</h3>
-                <ul>
-                    <li>Análise preditiva para otimização de processos.</li>
-                    <li>Automação de tarefas repetitivas com robôs inteligentes.</li>
-                    <li>Desenvolvimento de chatbots para atendimento ao cliente.</li>
-                </ul>
-            </article>
+            <h3>Visão Computacional</h3>
+            <ul>
+                <li>Reconhecimento facial e de objetos em tempo real.</li>
+                <li>Análise de imagens para controle de qualidade.</li>
+                <li>Automação de tarefas baseada em análise de vídeo.</li>
+            </ul>
 
-            <article class="animate-on-scroll">
-                <h3>Soluções de Machine Learning</h3>
-                <ul>
-                    <li>Criação de modelos de recomendação personalizados.</li>
-                    <li>Sistemas de detecção de fraude e anomalias.</li>
-                    <li>Processamento de Linguagem Natural (PLN) para análise de texto.</li>
-                </ul>
-            </article>
-
-            <article class="animate-on-scroll">
-                <h3>Visão Computacional</h3>
-                <ul>
-                    <li>Reconhecimento de imagens e objetos em tempo real.</li>
-                    <li>Análise de vídeo para segurança e monitoramento.</li>
-                    <li>Otimização de cadeias de suprimentos com análise visual.</li>
-                </ul>
-            </article>
+            <h3>Processamento de Linguagem Natural (PLN)</h3>
+            <ul>
+                <li>Chatbots e assistentes virtuais inteligentes.</li>
+                <li>Análise de sentimento em textos e redes sociais.</li>
+                <li>Tradução e sumarização automática de documentos.</li>
+            </ul>
         </section>
     </main>
 
@@ -73,13 +66,8 @@
                 <span>Assistente de IA</span>
                 <button id="close-chatbot">&times;</button>
             </div>
-            <div class="chatbot-messages" id="chatbot-messages">
-                <div class="message bot-message">Olá! 👋 Como posso ajudar você hoje?</div>
-            </div>
-            <div class="chatbot-input-container">
-                <input type="text" id="chatbot-input" placeholder="Digite sua mensagem...">
-                <button id="chatbot-send" aria-label="Enviar mensagem">&#10148;</button>
-            </div>
+            <div class="chatbot-messages" id="chatbot-messages"></div>
+            <div class="chatbot-options" id="chatbot-options"></div>
         </div>
         <button id="chatbot-toggle" aria-label="Abrir chat">🤖</button>
     </div>

@@ -12,7 +12,7 @@
 
 <body>
     <header class="container-cabecalho">
-        <a href="./index.html">
+        <a href="index.html">
             <img src="./images/logo_empresa.png" alt="Logo da empresa" title="Inteligência artificial">
         </a>
         <h3>Inteligência Artificial</h3>
@@ -31,11 +31,11 @@
     </nav>
 
     <main>
-        <section class="container-contatos">
-            <h1 class="animate-on-scroll">Contatos</h1>
-            <h3 class="animate-on-scroll"> gmail@ia.com</h3>
-            <h3 class="animate-on-scroll"> +55 71 91234-5678</h3>
-            <h3 class="animate-on-scroll"> Rua da Tecnologia, 123 - Salvador, BA</h3>
+        <section class="container-contatos animate-on-scroll">
+            <h1>Contatos</h1>
+            <h3>Entre em contato conosco:</h3>
+            <p>Email: email@ia.com</p>
+            <p>Telefone: +55 71 91234-5678</p>
         </section>
     </main>
 
@@ -49,13 +49,8 @@
                 <span>Assistente de IA</span>
                 <button id="close-chatbot">&times;</button>
             </div>
-            <div class="chatbot-messages" id="chatbot-messages">
-                <div class="message bot-message">Olá! 👋 Como posso ajudar você hoje?</div>
-            </div>
-            <div class="chatbot-input-container">
-                <input type="text" id="chatbot-input" placeholder="Digite sua mensagem...">
-                <button id="chatbot-send" aria-label="Enviar mensagem">&#10148;</button>
-            </div>
+            <div class="chatbot-messages" id="chatbot-messages"></div>
+            <div class="chatbot-options" id="chatbot-options"></div>
         </div>
         <button id="chatbot-toggle" aria-label="Abrir chat">🤖</button>
     </div>

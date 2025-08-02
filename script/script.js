@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Animation on scroll
+  // Animação de scroll
   const sections = document.querySelectorAll(".animate-on-scroll");
   const observer = new IntersectionObserver(
     (entries) => {
@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   );
   sections.forEach((section) => observer.observe(section));
+
+  // Menu de navegação responsivo
   const menuToggle = document.getElementById("menu-toggle");
   const closeMenuBtn = document.getElementById("close-menu-btn");
   const navMenu = document.getElementById("nav-menu");
@@ -36,72 +38,91 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // --- Chatbot ---
   const chatbotToggle = document.getElementById("chatbot-toggle");
   const chatbotWindow = document.getElementById("chatbot-window");
   const closeChatbotBtn = document.getElementById("close-chatbot");
-  const chatbotInput = document.getElementById("chatbot-input");
-  const chatbotSendBtn = document.getElementById("chatbot-send");
   const chatbotMessages = document.getElementById("chatbot-messages");
+  const chatbotOptionsContainer = document.getElementById("chatbot-options");
 
-  chatbotToggle.addEventListener("click", () => {
-    chatbotWindow.classList.toggle("active");
-    if (chatbotWindow.classList.contains("active")) {
-      chatbotInput.focus();
-    }
-  });
+  const chatbotMenu = {
+    initial: {
+      text: "Olá! 👋 Como posso ajudar você hoje? Escolha uma opção abaixo:",
+      options: [
+        {
+          text: "Quem somos",
+          response:
+            "Somos especialistas em Inteligência Artificial (AI). Trabalhamos para encontrar soluções tecnologicamente inteligentes para todas as áreas empresariais. Nossos laboratórios são os mais modernos e nossos colaboradores, os mais experientes.",
+        },
+        {
+          text: "Nossos Serviços",
+          response:
+            "Oferecemos soluções de Machine Learning, Visão Computacional, Processamento de Linguagem Natural e muito mais. Visite nossa página 'Nossos Serviços' para ver todos os detalhes!",
+        },
+        {
+          text: "Contatos",
+          response:
+            "Você pode nos contatar pelo email@ia.com ou pelo telefone +55 71 91234-5678. Nossa página de 'Contatos' tem todas as informações.",
+        },
+        {
+          text: "Outras perguntas",
+          response:
+            "Para outras perguntas, por favor, explore nosso site ou entre em contato diretamente através dos nossos canais oficiais. Estamos à disposição!",
+        },
+      ],
+    },
+  };
 
-  closeChatbotBtn.addEventListener("click", () => {
-    chatbotWindow.classList.remove("active");
-  });
-
-  const addMessage = (text, sender) => {
+  function addMessage(text, sender) {
     const messageElement = document.createElement("div");
     messageElement.classList.add("message", `${sender}-message`);
     messageElement.textContent = text;
     chatbotMessages.appendChild(messageElement);
     chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-  };
+  }
 
-  const getBotResponse = (userInput) => {
-    const lcInput = userInput.toLowerCase();
-    if (lcInput.includes("serviços") || lcInput.includes("servicos")) {
-      return "Oferecemos soluções de Machine Learning, Visão Computacional e muito mais. Visite nossa página 'Nossos Serviços' para detalhes!";
-    } else if (
-      lcInput.includes("contato") ||
-      lcInput.includes("email") ||
-      lcInput.includes("telefone")
-    ) {
-      return "Você pode nos contatar pelo email@ia.com ou pelo telefone +55 71 91234-5678. Nossa página de 'Contatos' tem todas as informações.";
-    } else if (
-      lcInput.includes("olá") ||
-      lcInput.includes("oi") ||
-      lcInput.includes("bom dia")
-    ) {
-      return "Olá! Tudo bem? Em que posso ser útil?";
-    } else if (lcInput.includes("obrigado") || lcInput.includes("obrigada")) {
-      return "De nada! Se precisar de mais alguma coisa, é só perguntar.";
-    } else {
-      return "Desculpe, não entendi. Poderia reformular a sua pergunta? Sou um bot em treinamento e minhas especialidades são sobre nossos serviços e formas de contato.";
-    }
-  };
+  function showOptions(options) {
+    chatbotOptionsContainer.innerHTML = "";
+    options.forEach((option) => {
+      const button = document.createElement("button");
+      button.textContent = option.text;
+      button.addEventListener("click", () => handleOptionClick(option));
+      chatbotOptionsContainer.appendChild(button);
+    });
+  }
 
-  const handleSendMessage = () => {
-    const messageText = chatbotInput.value.trim();
-    if (messageText === "") return;
-    addMessage(messageText, "user");
-
-    chatbotInput.value = "";
+  function handleOptionClick(option) {
+    addMessage(option.text, "user");
 
     setTimeout(() => {
-      const botResponse = getBotResponse(messageText);
-      addMessage(botResponse, "bot");
-    }, 1000);
-  };
+      if (option.response) {
+        addMessage(option.response, "bot");
+      }
+      setTimeout(() => {
+        showOptions(chatbotMenu.initial.options);
+      }, 800);
+    }, 500);
 
-  chatbotSendBtn.addEventListener("click", handleSendMessage);
-  chatbotInput.addEventListener("keypress", (event) => {
-    if (event.key === "Enter") {
-      handleSendMessage();
+    chatbotOptionsContainer.innerHTML = "";
+  }
+
+  // Inicia ou reinicia o chat
+  function initChatbot() {
+    chatbotMessages.innerHTML = "";
+    chatbotOptionsContainer.innerHTML = "";
+    addMessage(chatbotMenu.initial.text, "bot");
+    showOptions(chatbotMenu.initial.options);
+  }
+
+  chatbotToggle.addEventListener("click", () => {
+    const isActive = chatbotWindow.classList.contains("active");
+    if (!isActive) {
+      initChatbot();
     }
+    chatbotWindow.classList.toggle("active");
+  });
+
+  closeChatbotBtn.addEventListener("click", () => {
+    chatbotWindow.classList.remove("active");
   });
 });
