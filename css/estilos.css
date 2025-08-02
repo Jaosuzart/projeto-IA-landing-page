@@ -9,6 +9,7 @@ body {
   font-family: "Roboto", Arial, Helvetica, sans-serif;
   color: white;
   background-color: #05192a;
+  padding-bottom: 100px;
 }
 
 main {
@@ -16,6 +17,7 @@ main {
   overflow-x: hidden;
 }
 
+/* CABEÇALHO */
 .container-cabecalho {
   padding: 20px 40px;
   background-color: #04233f;
@@ -52,7 +54,7 @@ main {
   cursor: pointer;
   padding: 10px;
   display: none;
-  z-index: 100;
+  z-index: 101;
   width: 40px;
   height: 40px;
   position: relative;
@@ -226,6 +228,7 @@ footer {
   color: black;
   transform: scale(1.05);
 }
+
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(30px);
@@ -383,9 +386,9 @@ footer.animate-footer {
     transition: left 0.35s ease-in-out;
     z-index: 100;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    padding: 0;
+    justify-content: flex-start;
+    padding-top: 100px;
   }
   .container-navegacao.active {
     left: 0;
