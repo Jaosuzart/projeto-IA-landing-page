@@ -406,11 +406,15 @@ footer.animate-footer {
     background-color: rgba(6, 40, 77, 0.97);
     backdrop-filter: blur(8px);
     transition: left 0.35s ease-in-out;
+    left: -100;
     z-index: 100;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     padding-top: 100px;
+    padding-left: 30px;
+    padding-right: 30px;
+    box-sizing: border-box;
   }
   .container-navegacao.active {
     left: 0;
@@ -440,9 +444,18 @@ footer.animate-footer {
     align-items: center;
     height: auto;
     gap: 30px;
+    margin-top: 30px;
   }
   .nav-menu a {
     font-size: 1.8em;
+    width: 100%;
+    padding: 12px 0 12px 10px;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .nav-menu a:hover {
+    background: #0d2c4a;
+    color: #ffffff;
   }
 
   .container-quem-somos .servico {
