@@ -161,6 +161,14 @@ footer {
 .container-contatos {
   padding: 40px 20px;
   text-align: center;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.3s ease;
+}
+container-servicos.visible,
+.container-contatos.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 .container-servicos h1,
 .container-contatos h1 {
@@ -177,6 +185,13 @@ footer {
   border-radius: 5px;
   max-width: 800px;
   text-align: left;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.3s ease;
+}
+.container-contatos.visible h3 {
+  opacity: 1;
+  transform: translateY(0);
 }
 .container-contatos h3 {
   color: #ffffff;

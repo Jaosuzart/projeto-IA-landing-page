@@ -10,9 +10,14 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     },
     {
-      threshold: 0.1,
+      threshold: 0.2,
     }
   );
+  document
+    .querySelectorAll(".container-servicos, .container-contatos")
+    .forEach((el) => {
+      observer.observe(el);
+    });
   sections.forEach((section) => observer.observe(section));
 
   // Menu de navegação responsivo
