@@ -446,7 +446,7 @@ footer.animate-footer {
     left: -100%;
     width: 80%;
     max-width: 200px;
-    height: 20h;
+    height: 40vh;
     background-color: rgba(6, 40, 77, 0.97);
     backdrop-filter: blur(8px);
     transition: left 0.35s ease-in-out;
