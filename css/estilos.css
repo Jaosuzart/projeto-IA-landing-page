@@ -533,7 +533,7 @@ footer.animate-footer {
     margin-right: auto;
   }
 }
-@media (min-width: 700px) and (max-width: 1620px) {
+@media (min-width: 700px) and (max-width: 1200px) {
   .container-cabecalho h3 {
     display: none;
   }
