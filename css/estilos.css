@@ -492,7 +492,8 @@ footer.animate-footer {
     align-items: center;
     height: auto;
     gap: 30px;
-    margin-top: 30px;
+    margin-top: 40px;
+    margin-bottom: 20px;
   }
 
   .nav-menu a {
@@ -645,7 +646,7 @@ footer.animate-footer {
     backdrop-filter: none;
     flex-direction: row;
     justify-content: center;
-    padding: 15px;
+    padding: 20px;
     left: 0 !important;
     transition: none;
   }
@@ -659,7 +660,7 @@ footer.animate-footer {
   .nav-menu a {
     font-size: 1.2em;
     width: auto;
-    padding: 0 5px 5px 5px;
+    padding: 0 10px 10px 10px;
     border-radius: 0;
   }
 
