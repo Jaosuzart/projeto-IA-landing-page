@@ -126,12 +126,14 @@ main {
 footer {
   padding: 40px;
 }
+
 .container-quem-somos {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   gap: 20px;
 }
+
 .container-quem-somos .servico {
   background-color: #061f35;
   width: 30%;
@@ -141,22 +143,27 @@ footer {
   text-align: center;
   transition: transform 0.3s ease;
 }
+
 .container-quem-somos .servico:hover {
   transform: translateY(-10px);
 }
+
 .container-quem-somos .servico .icone {
   margin-bottom: 15px;
   max-width: 60px;
 }
+
 .servico-texto {
   font-size: 1.1em;
   color: #81c4ff;
   line-height: 1.6;
 }
+
 .servico-texto-realce {
   color: white;
   font-weight: bold;
 }
+
 .container-servicos,
 .container-contatos {
   padding: 40px 20px;
@@ -165,17 +172,20 @@ footer {
   transform: translateY(40px);
   transition: opacity 0.3s ease;
 }
-container-servicos.visible,
+
+.container-servicos.visible,
 .container-contatos.visible {
   opacity: 1;
   transform: translateY(0);
 }
+
 .container-servicos h1,
 .container-contatos h1 {
   font-size: 2.5em;
   color: white;
   margin-bottom: 40px;
 }
+
 .container-servicos h3 {
   color: #ffffff;
   margin: 20px auto;
@@ -189,10 +199,12 @@ container-servicos.visible,
   transform: translateY(30px);
   transition: opacity 0.3s ease;
 }
+
 .container-contatos.visible h3 {
   opacity: 1;
   transform: translateY(0);
 }
+
 .container-contatos h3 {
   color: #ffffff;
   margin: 20px auto;
@@ -204,6 +216,7 @@ container-servicos.visible,
   max-width: 600px;
   text-align: center;
 }
+
 .container-servicos ul {
   list-style-position: inside;
   text-align: left;
@@ -212,11 +225,13 @@ container-servicos.visible,
   padding-left: 20px;
   display: inline-block;
 }
+
 .container-servicos li {
   margin: 15px 0;
   color: #bfe2ff;
   line-height: 1.5;
 }
+
 .container-servicos-contactos {
   background-color: #082946;
   padding: 60px 40px;
@@ -224,12 +239,14 @@ container-servicos.visible,
   max-width: 700px;
   margin: 0 auto 60px auto;
 }
+
 .container-servicos-contactos h1 {
   font-size: 1.8em;
   color: white;
   margin-bottom: 30px;
   line-height: 1.4;
 }
+
 .botoes-servicos-contactos .botao {
   display: inline-block;
   text-decoration: none;
@@ -241,6 +258,7 @@ container-servicos.visible,
   border-radius: 5px;
   transition: all 0.3s ease;
 }
+
 .botoes-servicos-contactos .botao:hover {
   background-color: white;
   color: black;
@@ -252,10 +270,12 @@ container-servicos.visible,
   transform: translateY(30px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
+
 .animate-on-scroll.fade-in {
   opacity: 1;
   transform: translateY(0);
 }
+
 footer.animate-footer {
   padding: 40px;
   text-align: center;
@@ -269,6 +289,7 @@ footer.animate-footer {
   right: 30px;
   z-index: 1000;
 }
+
 #chatbot-toggle {
   background-color: #1190ff;
   color: white;
@@ -284,9 +305,11 @@ footer.animate-footer {
   align-items: center;
   transition: transform 0.3s ease;
 }
+
 #chatbot-toggle:hover {
   background-color: #0d7acc;
 }
+
 #chatbot-window {
   display: none;
   position: fixed;
@@ -301,10 +324,13 @@ footer.animate-footer {
   flex-direction: column;
   overflow: hidden;
   border: 1px solid #06345d;
+  gap: 10px; /* Adicionado espaço entre componentes */
 }
+
 #chatbot-window.active {
   display: flex;
 }
+
 .chatbot-header {
   background-color: #04233f;
   color: white;
@@ -314,6 +340,7 @@ footer.animate-footer {
   position: relative;
   flex-shrink: 0;
 }
+
 #close-chatbot {
   position: absolute;
   top: 50%;
@@ -326,66 +353,83 @@ footer.animate-footer {
   cursor: pointer;
   transition: transform 0.2s ease;
 }
+
 #close-chatbot:hover {
   transform: translateY(-50%) scale(1.1);
 }
+
 .chatbot-messages {
-  flex-grow: 1;
-  padding: 20px;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.chatbot-messages .message {
-  padding: 10px 15px;
-  border-radius: 18px;
-  max-width: 75%;
-  line-height: 1.4;
-  word-wrap: break-word;
-}
-.chatbot-messages .user-message {
-  background-color: #1190ff;
-  color: white;
-  align-self: flex-end;
-  border-bottom-right-radius: 4px;
-}
-.chatbot-messages .bot-message {
-  background-color: #08253f;
-  color: #bfe2ff;
-  align-self: flex-start;
-  border-bottom-left-radius: 4px;
-}
-.chatbot-options {
   padding: 15px;
-  border-top: 1px solid #06345d;
-  background-color: #04233f;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  flex-grow: 1; /* Alterado para flex-grow em vez de height fixa */
+  overflow-y: auto;
 }
 
-.chatbot-options button {
-  background-color: #1190ff;
+.message {
+  margin: 8px 0;
+  padding: 8px 12px;
+  border-radius: 15px;
+  max-width: 80%;
+}
+
+.bot-message {
+  background-color: #d5e8ef;
+  color: #34495e;
+  float: left;
+  clear: both;
+}
+
+.user-message {
+  background-color: #007bff;
+  color: white;
+  float: right;
+  clear: both;
+}
+
+.chatbot-input {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 10px;
+  border-top: 1px solid #1e3d5c;
+  background-color: #f5f8fa;
+  flex-shrink: 0; /* Adicionado para evitar encolhimento */
+}
+
+#user-input {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #2980b9;
+  border-radius: 4px;
+  margin-right: 8px;
+  background-color: #ecf0f3;
+  color: #2c3e50;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+#user-input:focus {
+  outline: none;
+  border-color: #3498db;
+  background-color: #ffffff;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+#user-input::placeholder {
+  color: #95a5a6;
+}
+
+#send-message {
+  padding: 10px 16px;
+  background-color: #2980b9;
   color: white;
   border: none;
-  padding: 12px 16px;
-  border-radius: 8px;
+  border-radius: 4px;
   cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  text-align: left;
+  transition: background-color 0.3s ease;
 }
 
-.chatbot-options button:hover {
-  background-color: #0d7acc;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(17, 144, 255, 0.3);
-}
-
-.chatbot-options button:active {
-  transform: translateY(0);
+#send-message:hover {
+  background-color: #3498db;
 }
 
 @media (max-width: 768px) {
@@ -406,7 +450,6 @@ footer.animate-footer {
     background-color: rgba(6, 40, 77, 0.97);
     backdrop-filter: blur(8px);
     transition: left 0.35s ease-in-out;
-    left: -100;
     z-index: 100;
     flex-direction: column;
     align-items: center;
@@ -491,6 +534,7 @@ footer.animate-footer {
     margin-right: auto;
   }
 }
+
 @media (min-width: 320px) and (max-width: 375px) and (max-height: 667px) {
   .container-navegacao {
     width: 100vw;
@@ -518,108 +562,5 @@ footer.animate-footer {
     right: 12px;
     top: 12px;
     font-size: 2.2rem;
-  }
-}
-@media (max-width: 896px) {
-  .container-cabecalho h3 {
-    display: none;
-  }
-  .menu-toggle {
-    display: block;
-  }
-
-  .container-navegacao {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 80%;
-    max-width: 320px;
-    height: 100vh;
-    background-color: rgba(6, 40, 77, 0.97);
-    backdrop-filter: blur(8px);
-    transition: left 0.35s ease-in-out;
-    left: -100;
-    z-index: 100;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding-top: 50px;
-    padding-left: 20px;
-    padding-right: 15px;
-    box-sizing: border-box;
-  }
-  .container-navegacao.active {
-    left: 0;
-  }
-
-  .close-menu-btn {
-    display: block;
-    position: absolute;
-    top: 20px;
-    right: 25px;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 2.5rem;
-    font-weight: bold;
-    line-height: 1;
-    cursor: pointer;
-    transition: transform 0.2s ease, color 0.2s ease;
-  }
-  .close-menu-btn:hover {
-    transform: scale(1.1);
-    color: #ff4d4d;
-  }
-
-  .nav-menu {
-    flex-direction: column;
-    align-items: center;
-    height: auto;
-    gap: 30px;
-    margin-top: 30px;
-  }
-  .nav-menu a {
-    font-size: 1.8em;
-    width: 100%;
-    padding: 12px 0 12px 10px;
-    border-radius: 6px;
-    transition: background 0.2s, color 0.2s;
-  }
-  .nav-menu a:hover {
-    background: #0d2c4a;
-    color: #ffffff;
-  }
-
-  .container-quem-somos .servico {
-    width: 90%;
-  }
-
-  .container-servicos-contactos {
-    margin: 0 40px 60px 40px;
-    padding: 40px 20px;
-  }
-
-  footer.animate-footer {
-    padding: 40px 20px;
-    margin: 0 20px;
-  }
-
-  .botoes-servicos-contactos {
-    flex-direction: column;
-  }
-  .container-servicos h3 {
-    text-align: center;
-    border-left: none;
-    border-top: 3px solid #1190ff;
-    padding-top: 20px;
-  }
-  .container-servicos ul {
-    padding-left: 0;
-    text-align: center;
-  }
-  .container-contatos h3 {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
   }
 }
