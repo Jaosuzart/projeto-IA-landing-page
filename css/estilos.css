@@ -371,8 +371,8 @@ footer.animate-footer {
   color: #81c4ff;
   font-size: 1.1em;
 }
-.carousel-prev,
-.carousel-next {
+
+/* .carousel-prev, .carousel-next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -383,12 +383,8 @@ footer.animate-footer {
   cursor: pointer;
   z-index: 10;
 }
-.carousel-prev {
-  left: 10px;
-}
-.carousel-next {
-  right: 10px;
-}
+.carousel-prev { left: 10px; }
+.carousel-next { right: 10px; } */
 
 .chatbot-container {
   position: fixed;
@@ -554,8 +550,8 @@ footer.animate-footer {
     top: 0;
     left: -100%;
     width: 85%;
-    max-width: 370px;
-    height: 30vh;
+    max-width: 300px;
+    height: 40vh;
     background-color: rgba(6, 40, 77, 0.97);
     backdrop-filter: blur(8px);
     transition: left 0.35s ease-in-out;
@@ -584,7 +580,6 @@ footer.animate-footer {
     background: none;
     border: none;
     transition: transform 0.2s ease, color 0.2s ease;
-    padding: 10px;
   }
 
   .close-menu-btn:hover {
@@ -762,8 +757,7 @@ footer.animate-footer {
     font-size: 12px;
   }
 }
-
-@media (min-width: 1600px) {
+@media (min-width: 1201px) {
   .menu-toggle,
   .close-menu-btn {
     display: none !important;
