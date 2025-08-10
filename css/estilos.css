@@ -554,8 +554,8 @@ footer.animate-footer {
     top: 0;
     left: -100%;
     width: 85%;
-    max-width: 300px; /* Ajuste para largura menor em mobile */
-    height: 50vh;
+    max-width: 350px; /* Ajuste para largura menor em mobile */
+    height: 25vh;
     background-color: rgba(6, 40, 77, 0.97);
     backdrop-filter: blur(8px);
     transition: left 0.35s ease-in-out;
@@ -864,8 +864,4 @@ footer.animate-footer {
     margin: 0 auto;
     display: block;
   }
-}
-.carousel-prev {
-  max-width: 40vh;
-  padding-left: 10px;
 }
