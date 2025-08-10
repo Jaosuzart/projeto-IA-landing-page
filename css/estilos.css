@@ -250,7 +250,7 @@ main {
 }
 
 .container-contatos p a {
-  color: inherit;
+  color: inherit; /* Remove cor azul padrão */
   text-decoration: underline;
   transition: opacity 0.3s ease;
 }
@@ -745,7 +745,6 @@ footer.animate-footer {
 
   #user-input {
     font-size: 12px;
-    padding: 8px;
   }
 
   #send-message {
@@ -838,5 +837,9 @@ footer.animate-footer {
     background-color: transparent;
     color: #ffffff;
     border-bottom: 2px solid #ffffff;
+  }
+
+  .container-cabecalho img {
+    margin: 0 auto;
   }
 }

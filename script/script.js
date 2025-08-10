@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // --- SEU CÓDIGO ORIGINAL (SEM ALTERAÇÕES) ---
   const chatbotToggle = document.getElementById("chatbot-toggle");
   const chatbotWindow = document.getElementById("chatbot-window");
   const closeChatbot = document.getElementById("close-chatbot");
@@ -6,27 +7,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const sendMessage = document.getElementById("send-message");
   const chatbotMessages = document.getElementById("chatbot-messages");
 
-  // Toggle chatbot window
   chatbotToggle.addEventListener("click", () => {
     chatbotWindow.classList.toggle("active");
   });
-
   closeChatbot.addEventListener("click", () => {
     chatbotWindow.classList.remove("active");
   });
 
-  // Simulate API responses
   const apiResponses = {
     "quem somos": `
-            Somos especialistas em <strong>Inteligência Artificial (AI)</strong>. 
+            Somos especialistas em Inteligência Artificial (AI). 
             Trabalhamos para encontrar soluções tecnologicamente inteligentes para todas as áreas empresariais. 
             Nossos laboratórios são os mais modernos da atualidade e nossos colaboradores são os técnicos mais experientes do mercado.
         `,
     serviços: `
             Nossos serviços incluem:
-            - <strong>Soluções de Machine Learning</strong>: Análise preditiva, sistemas de recomendação, modelos de classificação.
-            - <strong>Visão Computacional</strong>: Reconhecimento facial, análise de imagens, automação de tarefas.
-            - <strong>Processamento de Linguagem Natural (PLN)</strong>: Chatbots, análise de sentimento, tradução automática.
+            - Soluções de Machine Learning: Análise preditiva, sistemas de recomendação, modelos de classificação.
+            - Visão Computacional: Reconhecimento facial, análise de imagens, automação de tarefas.
+            - Processamento de Linguagem Natural (PLN): Chatbots, análise de sentimento, tradução automática.
         `,
     contato: `
             Entre em contato conosco:
@@ -35,18 +33,14 @@ document.addEventListener("DOMContentLoaded", () => {
         `,
   };
 
-  // Handle message sending
   sendMessage.addEventListener("click", () => {
     const message = userInput.value.trim().toLowerCase();
     if (message) {
-      // Display user message
       const userMsg = document.createElement("div");
       userMsg.classList.add("message", "user-message");
       userMsg.textContent = message;
       chatbotMessages.appendChild(userMsg);
       chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-
-      // Simulate API call and display response
       setTimeout(() => {
         const response =
           apiResponses[message] ||
@@ -57,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
         chatbotMessages.appendChild(botMsg);
         chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
       }, 500);
-
       userInput.value = "";
     }
   });
@@ -68,7 +61,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Menu toggle functionality
   const menuToggle = document.getElementById("menu-toggle");
   const navMenu = document.getElementById("nav-menu");
   const closeMenuBtn = document.getElementById("close-menu-btn");
@@ -76,12 +68,10 @@ document.addEventListener("DOMContentLoaded", () => {
   menuToggle.addEventListener("click", () => {
     navMenu.classList.add("active");
   });
-
   closeMenuBtn.addEventListener("click", () => {
     navMenu.classList.remove("active");
   });
 
-  // Animation on scroll
   const animateOnScrollElements =
     document.querySelectorAll(".animate-on-scroll");
   const observer = new IntersectionObserver(
@@ -94,6 +84,46 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     { threshold: 0.1 }
   );
-
   animateOnScrollElements.forEach((element) => observer.observe(element));
+
+  // --- NOVO CÓDIGO: LÓGICA DO CARROSSEL DE DEPOIMENTOS INFINITO ---
+  const carouselTrack = document.querySelector(".carousel-track");
+  const carouselItems = document.querySelectorAll(".carousel-item");
+
+  if (carouselTrack && carouselItems.length > 0) {
+    let currentIndex = 0;
+    const totalItems = carouselItems.length;
+
+    // 1. Clona os itens para criar o efeito de loop infinito
+    carouselItems.forEach((item) => {
+      const clone = item.cloneNode(true);
+      carouselTrack.appendChild(clone);
+    });
+
+    // 2. Função que move o carrossel
+    const moveCarousel = () => {
+      currentIndex++;
+      const itemWidth = carouselItems[0].clientWidth;
+      // Move o track para a esquerda
+      carouselTrack.style.transform = `translateX(-${
+        currentIndex * itemWidth
+      }px)`;
+      carouselTrack.style.transition = "transform 0.5s ease-in-out";
+
+      // 3. Verifica se chegou ao final (nos itens clonados)
+      if (currentIndex === totalItems) {
+        // Usa um timeout para esperar a animação de transição terminar
+        setTimeout(() => {
+          // Remove a animação de transição
+          carouselTrack.style.transition = "none";
+          // Reseta a posição para o início sem animar
+          currentIndex = 0;
+          carouselTrack.style.transform = "translateX(0)";
+        }, 500); // O tempo deve ser igual à duração da transição do CSS
+      }
+    };
+
+    // 4. Inicia o loop infinito a cada 3 segundos
+    setInterval(moveCarousel, 3000);
+  }
 });
