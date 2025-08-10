@@ -554,7 +554,7 @@ footer.animate-footer {
     top: 0;
     left: -100%;
     width: 85%;
-    max-width: 360px;
+    max-width: 370px;
     height: 30vh;
     background-color: rgba(6, 40, 77, 0.97);
     backdrop-filter: blur(8px);
@@ -584,6 +584,7 @@ footer.animate-footer {
     background: none;
     border: none;
     transition: transform 0.2s ease, color 0.2s ease;
+    padding: 10px;
   }
 
   .close-menu-btn:hover {
@@ -762,54 +763,7 @@ footer.animate-footer {
   }
 }
 
-@media (max-width: 390px) {
-  .container-cabecalho {
-    padding: 10px 15px;
-  }
-
-  .container-navegacao {
-    max-width: 280px;
-    padding: 15px;
-  }
-
-  .nav-menu a {
-    font-size: 1.7em;
-    padding: 8px 10px;
-  }
-
-  .container-quem-somos .servico {
-    padding: 10px;
-  }
-
-  .container-servicos h1,
-  .container-contatos h1 {
-    font-size: 1.5em;
-  }
-
-  .service-image,
-  .contact-image {
-    max-width: 100px;
-  }
-
-  .container-servicos h3 {
-    padding: 10px;
-  }
-
-  .container-servicos-contactos {
-    padding: 20px 10px;
-  }
-
-  .botoes-servicos-contactos .botao {
-    padding: 8px 20px;
-  }
-
-  .client-image {
-    width: 60px;
-    height: 60px;
-  }
-}
-
-@media (min-width: 1201px) {
+@media (min-width: 1600px) {
   .menu-toggle,
   .close-menu-btn {
     display: none !important;
