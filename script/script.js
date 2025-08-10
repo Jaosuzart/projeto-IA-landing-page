@@ -86,7 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   animateOnScrollElements.forEach((element) => observer.observe(element));
 
-  // --- NOVO CÓDIGO: LÓGICA DO CARROSSEL DE DEPOIMENTOS INFINITO ---
   const carouselTrack = document.querySelector(".carousel-track");
   const carouselItems = document.querySelectorAll(".carousel-item");
 
@@ -94,25 +93,20 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentIndex = 0;
     const totalItems = carouselItems.length;
 
-    // 1. Clona os itens para criar o efeito de loop infinito
     carouselItems.forEach((item) => {
       const clone = item.cloneNode(true);
       carouselTrack.appendChild(clone);
     });
 
-    // 2. Função que move o carrossel
     const moveCarousel = () => {
       currentIndex++;
       const itemWidth = carouselItems[0].clientWidth;
-      // Move o track para a esquerda
       carouselTrack.style.transform = `translateX(-${
         currentIndex * itemWidth
       }px)`;
       carouselTrack.style.transition = "transform 0.5s ease-in-out";
 
-      // 3. Verifica se chegou ao final (nos itens clonados)
       if (currentIndex === totalItems) {
-        // Usa um timeout para esperar a animação de transição terminar
         setTimeout(() => {
           // Remove a animação de transição
           carouselTrack.style.transition = "none";

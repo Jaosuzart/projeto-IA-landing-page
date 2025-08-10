@@ -20,7 +20,7 @@ main {
   padding: 20px 40px;
   background-color: #04233f;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between;  <-- ALTERAÇÃO AQUI: Linha removida/comentada */
   align-items: center;
   position: sticky;
   top: 0;
@@ -32,7 +32,7 @@ main {
   font-weight: 600;
   font-size: 2em;
   color: #1190ff;
-  margin: 0 20px;
+  margin: 0 auto; /* ALTERAÇÃO AQUI: Centraliza o título no espaço disponível */
 }
 
 .container-cabecalho img {
