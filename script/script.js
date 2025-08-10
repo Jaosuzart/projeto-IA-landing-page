@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // --- SEU CÓDIGO ORIGINAL (SEM ALTERAÇÕES) ---
   const chatbotToggle = document.getElementById("chatbot-toggle");
   const chatbotWindow = document.getElementById("chatbot-window");
   const closeChatbot = document.getElementById("close-chatbot");
@@ -10,21 +9,22 @@ document.addEventListener("DOMContentLoaded", () => {
   chatbotToggle.addEventListener("click", () => {
     chatbotWindow.classList.toggle("active");
   });
+
   closeChatbot.addEventListener("click", () => {
     chatbotWindow.classList.remove("active");
   });
 
   const apiResponses = {
     "quem somos": `
-            Somos especialistas em Inteligência Artificial (AI). 
+            Somos especialistas em <strong>Inteligência Artificial (AI)</strong>. 
             Trabalhamos para encontrar soluções tecnologicamente inteligentes para todas as áreas empresariais. 
             Nossos laboratórios são os mais modernos da atualidade e nossos colaboradores são os técnicos mais experientes do mercado.
         `,
     serviços: `
             Nossos serviços incluem:
-            - Soluções de Machine Learning: Análise preditiva, sistemas de recomendação, modelos de classificação.
-            - Visão Computacional: Reconhecimento facial, análise de imagens, automação de tarefas.
-            - Processamento de Linguagem Natural (PLN): Chatbots, análise de sentimento, tradução automática.
+            - <strong>Soluções de Machine Learning</strong>: Análise preditiva, sistemas de recomendação, modelos de classificação.
+            - <strong>Visão Computacional</strong>: Reconhecimento facial, análise de imagens, automação de tarefas.
+            - <strong>Processamento de Linguagem Natural (PLN)</strong>: Chatbots, análise de sentimento, tradução automática.
         `,
     contato: `
             Entre em contato conosco:
@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
       userMsg.textContent = message;
       chatbotMessages.appendChild(userMsg);
       chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+
       setTimeout(() => {
         const response =
           apiResponses[message] ||
@@ -51,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
         chatbotMessages.appendChild(botMsg);
         chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
       }, 500);
+
       userInput.value = "";
     }
   });
@@ -68,6 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
   menuToggle.addEventListener("click", () => {
     navMenu.classList.add("active");
   });
+
   closeMenuBtn.addEventListener("click", () => {
     navMenu.classList.remove("active");
   });
@@ -87,37 +90,93 @@ document.addEventListener("DOMContentLoaded", () => {
   animateOnScrollElements.forEach((element) => observer.observe(element));
 
   const carouselTrack = document.querySelector(".carousel-track");
-  const carouselItems = document.querySelectorAll(".carousel-item");
+  const carouselSlides = document.querySelectorAll(".carousel-slide");
+  const prevButton = document.querySelector(".carousel-prev");
+  const nextButton = document.querySelector(".carousel-next");
 
-  if (carouselTrack && carouselItems.length > 0) {
+  if (carouselTrack && carouselSlides.length > 0) {
     let currentIndex = 0;
-    const totalItems = carouselItems.length;
+    const totalSlides = carouselSlides.length;
 
-    carouselItems.forEach((item) => {
-      const clone = item.cloneNode(true);
+    // Clonar slides para loop infinito
+    carouselSlides.forEach((slide) => {
+      const clone = slide.cloneNode(true);
       carouselTrack.appendChild(clone);
     });
 
-    const moveCarousel = () => {
-      currentIndex++;
-      const itemWidth = carouselItems[0].clientWidth;
+    const updateCarousel = () => {
+      const itemWidth = carouselSlides[0].clientWidth;
       carouselTrack.style.transform = `translateX(-${
         currentIndex * itemWidth
       }px)`;
       carouselTrack.style.transition = "transform 0.5s ease-in-out";
-
-      if (currentIndex === totalItems) {
-        setTimeout(() => {
-          // Remove a animação de transição
-          carouselTrack.style.transition = "none";
-          // Reseta a posição para o início sem animar
-          currentIndex = 0;
-          carouselTrack.style.transform = "translateX(0)";
-        }, 500); // O tempo deve ser igual à duração da transição do CSS
-      }
     };
 
-    // 4. Inicia o loop infinito a cada 3 segundos
-    setInterval(moveCarousel, 3000);
+    const resetCarousel = () => {
+      currentIndex = 0;
+      carouselTrack.style.transition = "none";
+      carouselTrack.style.transform = "translateX(0)";
+      setTimeout(() => {
+        carouselTrack.style.transition = "transform 0.5s ease-in-out";
+      }, 50);
+    };
+
+    nextButton.addEventListener("click", () => {
+      if (currentIndex < totalSlides - 1) {
+        currentIndex++;
+      } else {
+        currentIndex = 0;
+        setTimeout(resetCarousel, 500);
+      }
+      updateCarousel();
+    });
+
+    prevButton.addEventListener("click", () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+      } else {
+        currentIndex = totalSlides - 1;
+        carouselTrack.style.transition = "none";
+        carouselTrack.style.transform = `translateX(-${
+          totalSlides * carouselSlides[0].clientWidth
+        }px)`;
+        setTimeout(() => {
+          currentIndex = totalSlides - 1;
+          carouselTrack.style.transition = "transform 0.5s ease-in-out";
+          updateCarousel();
+        }, 50);
+      }
+      updateCarousel();
+    });
+
+    let autoPlay = setInterval(() => {
+      if (currentIndex < totalSlides - 1) {
+        currentIndex++;
+      } else {
+        setTimeout(resetCarousel, 500);
+        currentIndex = 0;
+      }
+      updateCarousel();
+    }, 3000);
+
+    carouselTrack.addEventListener("mouseover", () => {
+      clearInterval(autoPlay);
+    });
+
+    carouselTrack.addEventListener("mouseout", () => {
+      autoPlay = setInterval(() => {
+        if (currentIndex < totalSlides - 1) {
+          currentIndex++;
+        } else {
+          setTimeout(resetCarousel, 500);
+          currentIndex = 0;
+        }
+        updateCarousel();
+      }, 3000);
+    });
+
+    window.addEventListener("resize", () => {
+      updateCarousel();
+    });
   }
 });
