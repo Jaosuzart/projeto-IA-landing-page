@@ -865,3 +865,7 @@ footer.animate-footer {
     display: block;
   }
 }
+.carousel-prev {
+  max-width: 40vh;
+  padding-left: 10px;
+}
