@@ -29,7 +29,7 @@ main {
 }
 
 .container-cabecalho .logo {
-  max-width: 60px;
+  max-width: 80px;
   transition: transform 0.3s ease;
 }
 
@@ -37,7 +37,7 @@ main {
   font-weight: 600;
   font-size: 1.5em;
   color: #4a90e2;
-  margin-right: 60vh;
+  margin-right: 30vw;
 }
 
 .container-cabecalho .menu-toggle {
