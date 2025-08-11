@@ -623,8 +623,8 @@ footer.animate-footer {
     top: 0;
     left: -100%;
     width: 85%;
-    max-width: 400px;
-    height: 38vh;
+    max-width: 450px;
+    height: 50vh;
     background-color: #f0f0f0;
     backdrop-filter: blur(8px);
     transition: left 0.35s ease-in-out;
