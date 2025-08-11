@@ -16,7 +16,9 @@ Este projeto é uma landing page interativa que utiliza **HTML**, **CSS** e **Ja
 - **JavaScript**: Funcionalidade do chatbot e interações dinâmicas
 - **Chatbot IA**: Responde dúvidas diretamente na landing page
 - **Hospedagem**: [Vercel](https://vercel.com/)
--- ** FAQ **: Perguntas e respostas.
+-- ** FAQ**: Perguntas e respostas automatizadas para suporte rápido
+
+
 ## 📍 Acesse o projeto
 
 👉 [Clique aqui para visitar a landing page](https://projeto-ia-landing-page.vercel.app/index.html)
