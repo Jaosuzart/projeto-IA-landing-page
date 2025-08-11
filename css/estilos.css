@@ -61,7 +61,7 @@ main {
   width: 40px;
   height: 40px;
   position: relative;
-  margin-left: 15px;
+  margin-left: 5px;
 }
 
 .hamburger,
@@ -114,7 +114,7 @@ main {
   padding: 0;
   margin: 0;
   display: flex;
-  gap: 50px;
+  gap: 30px;
 }
 
 .nav-menu a {
@@ -667,6 +667,249 @@ footer.animate-footer {
     gap: 28px;
     margin-top: 20px;
     margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .nav-menu a {
+    font-size: 1.9em;
+    width: 95%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    transition: background 0.3s, color 0.3s;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .nav-menu a:hover {
+    background: #e0e0e0;
+    color: #2e6da4;
+    border-bottom: 2px solid transparent;
+  }
+
+  .container-cabecalho {
+    padding: 15px 20px;
+  }
+
+  .container-cabecalho img {
+    max-width: 60px;
+    display: none;
+  }
+
+  .menu-logo {
+    display: block;
+  }
+
+  .container-quem-somos,
+  .container-servicos,
+  .container-contatos,
+  .container-servicos-contactos {
+    padding: 15px 10px;
+    margin-bottom: 20px;
+  }
+
+  .container-quem-somos {
+    gap: 15px;
+  }
+
+  .container-quem-somos .servico {
+    width: 100%;
+    min-width: auto;
+    padding: 15px;
+    border-radius: 8px;
+  }
+
+  .container-quem-somos .icone {
+    max-width: 50px;
+  }
+
+  .service-image,
+  .contact-image {
+    max-width: 120px;
+  }
+
+  .servico-texto {
+    font-size: 0.95em;
+    line-height: 1.4;
+  }
+
+  .container-servicos h1,
+  .container-contatos h1 {
+    font-size: 1.8em;
+    margin-bottom: 25px;
+  }
+
+  .container-servicos h3 {
+    padding: 12px;
+    max-width: 100%;
+    text-align: center;
+    border-left: none;
+    border-top: 3px solid #4a90e2;
+  }
+
+  .container-servicos ul,
+  .container-contatos p {
+    padding-left: 8px;
+    max-width: 100%;
+  }
+
+  .container-servicos li {
+    margin: 8px 0;
+    font-size: 0.9em;
+  }
+
+  .container-servicos-contactos {
+    max-width: 90%;
+    padding: 25px 15px;
+  }
+
+  .container-servicos-contactos h1 {
+    font-size: 1.4em;
+  }
+
+  .botoes-servicos-contactos .botao {
+    padding: 10px 25px;
+    font-size: 0.95em;
+    width: 100%;
+    margin: 8px 0;
+  }
+
+  .animate-on-scroll {
+    transform: translateY(15px);
+  }
+
+  footer.animate-footer {
+    padding: 15px 10px;
+    font-size: 0.85em;
+  }
+
+  .carousel-container {
+    max-width: 90%;
+  }
+
+  .carousel-slide {
+    padding: 10px;
+  }
+
+  .client-image {
+    width: 70px;
+    height: 70px;
+  }
+
+  .testimonial {
+    font-size: 0.95em;
+  }
+
+  .chatbot-container {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  #chatbot-window {
+    width: 90vw;
+    height: 70vh;
+    bottom: 0;
+    right: 0;
+    border-radius: 0;
+  }
+
+  .chatbot-messages {
+    padding: 8px;
+  }
+
+  .chatbot-input {
+    padding: 6px;
+  }
+
+  #user-input {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  #send-message {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  .faq-section {
+    padding: 15px;
+    max-width: 90%;
+    margin: 0 auto 20px;
+  }
+
+  .faq-container {
+    grid-template-columns: 1fr;
+  }
+
+  .faq-item {
+    padding: 10px;
+  }
+
+  .faq-question {
+    font-size: 1em;
+  }
+
+  .faq-answer {
+    font-size: 0.9em;
+  }
+}
+@media (min-width: 1000px) and (max-width: 1179px) {
+  .container-cabecalho h3 {
+    display: none;
+  }
+
+  .menu-toggle,
+  .close-menu-btn {
+    display: block;
+  }
+
+  .container-navegacao {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 85%;
+    max-width: 400px;
+    height: 30vh;
+    background-color: #f0f0f0;
+    backdrop-filter: blur(8px);
+    transition: left 0.35s ease-in-out;
+    z-index: 100;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .container-navegacao.active {
+    left: 0;
+  }
+
+  .close-menu-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    background: none;
+    border: none;
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+
+  .close-menu-btn:hover {
+    transform: scale(1.1);
+    color: #ff4d4d;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
     width: 100%;
   }
 
