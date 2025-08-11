@@ -6,8 +6,8 @@
 
 body {
   font-family: "Roboto", Arial, Helvetica, sans-serif;
-  color: white;
-  background-color: #05192a;
+  color: #333;
+  background-color: #f9f9f9;
   padding-bottom: 100px;
 }
 
@@ -18,14 +18,14 @@ main {
 
 .container-cabecalho {
   padding: 20px 40px;
-  background-color: #04233f;
+  background-color: #f0f0f0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid #06345d;
+  border-bottom: 1px solid #ddd;
 }
 
 .container-cabecalho a:first-child {
@@ -35,7 +35,7 @@ main {
 .container-cabecalho h3 {
   font-weight: 600;
   font-size: 2em;
-  color: #1190ff;
+  color: #4a90e2;
   margin: 0 auto;
 }
 
@@ -72,7 +72,7 @@ main {
   position: absolute;
   width: 30px;
   height: 3px;
-  background-color: white;
+  background-color: #333;
   border-radius: 2px;
   transition: all 0.3s ease-in-out;
 }
@@ -103,7 +103,7 @@ main {
 
 .container-navegacao {
   padding: 15px;
-  background-color: #06345d;
+  background-color: #f0f0f0;
   display: flex;
   justify-content: center;
   position: relative;
@@ -120,15 +120,15 @@ main {
 .nav-menu a {
   font-size: 1.2em;
   text-decoration: none;
-  color: #7cc2ff;
+  color: #4a90e2;
   transition: color 0.3s ease;
   padding-bottom: 5px;
   border-bottom: 2px solid transparent;
 }
 
 .nav-menu a:hover {
-  color: #ffffff;
-  border-bottom: 2px solid #ffffff;
+  color: #2e6da4;
+  border-bottom: 2px solid #2e6da4;
 }
 
 .close-menu-btn {
@@ -136,7 +136,7 @@ main {
   top: 20px;
   right: 20px;
   font-size: 2.5rem;
-  color: white;
+  color: #333;
   background: none;
   border: none;
   cursor: pointer;
@@ -170,13 +170,14 @@ main {
 }
 
 .container-quem-somos .servico {
-  background-color: #061f35;
+  background-color: #f0f0f0;
   width: 30%;
   min-width: 280px;
   padding: 40px;
   border-radius: 10px;
   text-align: center;
   transition: transform 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .container-quem-somos .servico:hover {
@@ -197,12 +198,12 @@ main {
 
 .servico-texto {
   font-size: 1.1em;
-  color: #81c4ff;
+  color: #555;
   line-height: 1.6;
 }
 
 .servico-texto-realce {
-  color: white;
+  color: #4a90e2;
   font-weight: bold;
 }
 
@@ -212,26 +213,30 @@ main {
 
 .container-servicos h1 {
   font-size: 2.5em;
-  color: white;
+  color: #4a90e2;
   margin-bottom: 40px;
 }
 
 .servico-card {
   margin-bottom: 40px;
   transition: transform 0.3s ease, background-color 0.3s ease;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .servico-card:hover {
   transform: translateY(-5px);
-  background-color: #072a46;
+  background-color: #e0e0e0;
 }
 
 .container-servicos h3 {
-  color: #ffffff;
+  color: #4a90e2;
   margin: 20px auto;
   padding: 20px;
-  background-color: #08253f;
-  border-left: 5px solid #1190ff;
+  background-color: #f0f0f0;
+  border-left: 5px solid #4a90e2;
   border-radius: 5px;
   max-width: 800px;
   text-align: left;
@@ -239,28 +244,32 @@ main {
 
 .container-contatos {
   text-align: center;
+  background-color: #f0f0f0;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .container-contatos h1 {
   font-size: 2.5em;
-  color: white;
+  color: #4a90e2;
   margin-bottom: 40px;
 }
 
 .container-contatos h3 {
-  color: #ffffff;
+  color: #4a90e2;
   margin: 20px auto;
   padding: 20px;
-  background-color: #08253f;
-  border-top: 1px solid #1190ff;
-  border-bottom: 1px solid #1190ff;
+  background-color: #f0f0f0;
+  border-top: 1px solid #4a90e2;
+  border-bottom: 1px solid #4a90e2;
   border-radius: 5px;
   max-width: 600px;
   text-align: center;
 }
 
 .container-contatos p a {
-  color: inherit;
+  color: #4a90e2;
   text-decoration: underline;
   transition: opacity 0.3s ease;
 }
@@ -281,22 +290,23 @@ main {
 
 .container-servicos li {
   margin: 15px 0;
-  color: #bfe2ff;
+  color: #666;
   line-height: 1.5;
 }
 
 .container-servicos-contactos {
-  background-color: #082946;
+  background-color: #f0f0f0;
   padding: 60px 40px;
   text-align: center;
   max-width: 800px;
   margin: 0 auto 60px auto;
   border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .container-servicos-contactos h1 {
   font-size: 1.8em;
-  color: white;
+  color: #4a90e2;
   margin-bottom: 20px;
   line-height: 1.4;
 }
@@ -305,7 +315,7 @@ main {
   display: inline-block;
   text-decoration: none;
   font-size: 1.1em;
-  background-color: #008eb9;
+  background-color: #4a90e2;
   color: white;
   padding: 5px 10px;
   margin: 7px;
@@ -314,8 +324,7 @@ main {
 }
 
 .botoes-servicos-contactos .botao:hover {
-  background-color: white;
-  color: black;
+  background-color: #357abd;
   transform: scale(1.05);
 }
 
@@ -333,8 +342,9 @@ main {
 footer.animate-footer {
   padding: 10px;
   text-align: center;
-  color: #7cc2ff;
+  color: #666;
   margin: 0 10px;
+  background-color: #f0f0f0;
 }
 
 .carousel-container {
@@ -368,11 +378,12 @@ footer.animate-footer {
 
 .testimonial {
   font-style: italic;
-  color: #81c4ff;
+  color: #666;
   font-size: 1.1em;
 }
 
-/* .carousel-prev, .carousel-next {
+.carousel-prev,
+.carousel-next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -383,8 +394,14 @@ footer.animate-footer {
   cursor: pointer;
   z-index: 10;
 }
-.carousel-prev { left: 10px; }
-.carousel-next { right: 10px; } */
+
+.carousel-prev {
+  left: 10px;
+}
+
+.carousel-next {
+  right: 10px;
+}
 
 .chatbot-container {
   position: fixed;
@@ -394,7 +411,7 @@ footer.animate-footer {
 }
 
 #chatbot-toggle {
-  background-color: #1190ff;
+  background-color: #4a90e2;
   color: white;
   border: none;
   border-radius: 50%;
@@ -410,7 +427,7 @@ footer.animate-footer {
 }
 
 #chatbot-toggle:hover {
-  background-color: #0d7acc;
+  background-color: #357abd;
 }
 
 #chatbot-window {
@@ -421,12 +438,12 @@ footer.animate-footer {
   width: 350px;
   max-width: 90vw;
   height: 450px;
-  background-color: #061f35;
+  background-color: #f0f0f0;
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   flex-direction: column;
   overflow: hidden;
-  border: 1px solid #06345d;
+  border: 1px solid #ddd;
   gap: 10px;
 }
 
@@ -435,7 +452,7 @@ footer.animate-footer {
 }
 
 .chatbot-header {
-  background-color: #04233f;
+  background-color: #4a90e2;
   color: white;
   padding: 15px;
   font-weight: bold;
@@ -475,14 +492,14 @@ footer.animate-footer {
 }
 
 .bot-message {
-  background-color: #d5e8ef;
-  color: #34495e;
+  background-color: #e0f0f7;
+  color: #333;
   float: left;
   clear: both;
 }
 
 .user-message {
-  background-color: #007bff;
+  background-color: #4a90e2;
   color: white;
   float: right;
   clear: both;
@@ -493,37 +510,36 @@ footer.animate-footer {
   flex-direction: row;
   gap: 10px;
   padding: 10px;
-  border-top: 1px solid #1e3d5c;
-  background-color: #f5f8fa;
+  border-top: 1px solid #ddd;
+  background-color: #fff;
   flex-shrink: 0;
 }
 
 #user-input {
   flex: 1;
   padding: 10px;
-  border: 2px solid #2980b9;
+  border: 2px solid #4a90e2;
   border-radius: 4px;
   margin-right: 8px;
-  background-color: #ecf0f3;
-  color: #2c3e50;
+  background-color: #fff;
+  color: #333;
   font-size: 14px;
   transition: all 0.3s ease;
 }
 
 #user-input:focus {
   outline: none;
-  border-color: #3498db;
-  background-color: #ffffff;
-  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+  border-color: #357abd;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
 }
 
 #user-input::placeholder {
-  color: #95a5a6;
+  color: #999;
 }
 
 #send-message {
   padding: 8px 12px;
-  background-color: #2980b9;
+  background-color: #4a90e2;
   color: white;
   border: none;
   border-radius: 4px;
@@ -532,7 +548,64 @@ footer.animate-footer {
 }
 
 #send-message:hover {
-  background-color: #3498db;
+  background-color: #357abd;
+}
+
+.faq-section {
+  padding: 40px;
+  margin: 0 auto 60px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.faq-section h2 {
+  font-size: 2em;
+  color: #4a90e2;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.faq-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.faq-item {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.faq-item:hover {
+  transform: translateY(-5px);
+}
+
+.faq-question {
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.faq-answer {
+  font-size: 1em;
+  color: #666;
+  display: none;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.faq-item.active .faq-answer {
+  display: block;
 }
 
 @media (max-width: 1200px) {
@@ -552,7 +625,7 @@ footer.animate-footer {
     width: 85%;
     max-width: 450px;
     height: 50vh;
-    background-color: rgba(6, 40, 77, 0.97);
+    background-color: #f0f0f0;
     backdrop-filter: blur(8px);
     transition: left 0.35s ease-in-out;
     z-index: 100;
@@ -575,7 +648,7 @@ footer.animate-footer {
     right: 20px;
     font-size: 2.5rem;
     font-weight: bold;
-    color: white;
+    color: #333;
     cursor: pointer;
     background: none;
     border: none;
@@ -608,8 +681,8 @@ footer.animate-footer {
   }
 
   .nav-menu a:hover {
-    background: #0d2c4a;
-    color: #ffffff;
+    background: #e0e0e0;
+    color: #2e6da4;
     border-bottom: 2px solid transparent;
   }
 
@@ -670,7 +743,7 @@ footer.animate-footer {
     max-width: 100%;
     text-align: center;
     border-left: none;
-    border-top: 3px solid #1190ff;
+    border-top: 3px solid #4a90e2;
   }
 
   .container-servicos ul,
@@ -756,7 +829,30 @@ footer.animate-footer {
     padding: 6px 8px;
     font-size: 12px;
   }
+
+  .faq-section {
+    padding: 15px;
+    max-width: 90%;
+    margin: 0 auto 20px;
+  }
+
+  .faq-container {
+    grid-template-columns: 1fr;
+  }
+
+  .faq-item {
+    padding: 10px;
+  }
+
+  .faq-question {
+    font-size: 1em;
+  }
+
+  .faq-answer {
+    font-size: 0.9em;
+  }
 }
+
 @media (min-width: 1201px) {
   .menu-toggle,
   .close-menu-btn {
@@ -767,7 +863,7 @@ footer.animate-footer {
     position: relative;
     height: auto;
     width: 100%;
-    background-color: #06345d;
+    background-color: #f0f0f0;
     backdrop-filter: none;
     flex-direction: row;
     justify-content: center;
@@ -792,8 +888,8 @@ footer.animate-footer {
 
   .nav-menu a:hover {
     background-color: transparent;
-    color: #ffffff;
-    border-bottom: 2px solid #ffffff;
+    color: #2e6da4;
+    border-bottom: 2px solid #2e6da4;
   }
 
   .container-cabecalho {
