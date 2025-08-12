@@ -716,7 +716,7 @@ footer.animate-footer {
     font-size: 0.9em;
   }
 }
-@media (min-width: 1000px) and (max-width: 1179px) {
+@media (min-width: 100px) and (max-width: 1179px) {
   .container-cabecalho h3 {
     display: none;
     background: none;
@@ -730,11 +730,6 @@ footer.animate-footer {
     top: 0;
     z-index: 100;
     border-bottom: 1px solid black;
-  }
-  .container-cabecalho img {
-    max-width: 400px;
-    transition: transform 0.3s ease;
-    position: static;
   }
   .menu-toggle,
   .close-menu-btn {
@@ -803,13 +798,6 @@ footer.animate-footer {
   }
   .container-cabecalho {
     padding: 15px 20px;
-  }
-  .container-cabecalho img {
-    max-width: 60px;
-    display: block;
-  }
-  .menu-logo {
-    display: block;
   }
   .container-quem-somos,
   .container-servicos,
@@ -1177,11 +1165,6 @@ footer.animate-footer {
     justify-content: flex-start;
   }
 }
-.container-cabecalho img {
-  max-width: 400px;
-  transition: transform 0.3s ease;
-  position: static;
-}
 .menu-toggle,
 .close-menu-btn {
   display: block;
@@ -1191,8 +1174,8 @@ footer.animate-footer {
   top: 0;
   right: -100%;
   width: 75%;
-  max-width: 600px;
-  height: 80vh;
+  max-width: 400px;
+  height: 60vh;
   background-color: black;
   backdrop-filter: blur(8px);
   transition: right 0.35s ease-in-out;
@@ -1386,7 +1369,7 @@ footer.animate-footer {
   .container-cabecalho {
     flex-direction: row;
     align-items: center;
-    padding: 15px 20px;
+    padding: 5px 10px;
   }
   .menu-toggle {
     margin-right: 15px;
