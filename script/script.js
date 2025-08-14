@@ -74,6 +74,10 @@ document.addEventListener("DOMContentLoaded", () => {
   closeMenuBtn.addEventListener("click", () => {
     navMenu.classList.remove("active");
   });
+  const navLinks = document.querySelectorAll(".nav-menu a");
+  navLinks.forEach((link) => {
+    link.addEventListener("click", closeMenuBtn);
+  });
 
   const animateOnScrollElements =
     document.querySelectorAll(".animate-on-scroll");

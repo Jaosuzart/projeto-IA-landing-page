@@ -21,32 +21,27 @@ main {
   top: 0;
   z-index: 100;
   border-bottom: 1px solid rgba(243, 0, 0, 0.692);
-  padding: 15px 20px;
+  padding: 10px 15px;
 }
 .container-cabecalho .logo {
-  max-width: 80px;
-  transition: transform 0.3s ease;
+  max-width: 60px;
+  z-index: 102;
 }
 .container-cabecalho h3 {
   font-weight: 600;
-  font-size: 1.5em;
+  font-size: 1.1em;
   color: black;
-  margin-right: 30vw;
+  margin: 0 10px 0 0;
+  white-space: nowrap;
 }
-.container-cabecalho .menu-toggle {
-  margin-left: auto;
-}
-.menu-toggle,
-.close-menu-btn {
-  display: none;
+.menu-toggle {
+  display: block;
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 101;
-}
-.menu-toggle {
-  width: 40px;
-  height: 40px;
+  z-index: 100;
+  width: 30px;
+  height: 30px;
   position: relative;
 }
 .hamburger,
@@ -55,97 +50,119 @@ main {
   content: "";
   display: block;
   position: absolute;
-  width: 30px;
-  height: 3px;
+  width: 24px;
+  height: 2px;
   background-color: #333;
   border-radius: 2px;
   transition: all 0.3s ease-in-out;
 }
 .hamburger {
-  top: 18px;
+  top: 14px;
+  left: 3px;
 }
 .hamburger::before {
-  top: -10px;
+  top: -8px;
 }
 .hamburger::after {
-  top: 10px;
+  top: 8px;
 }
 .menu-toggle.active .hamburger {
   background: transparent;
 }
 .menu-toggle.active .hamburger::before {
-  transform: rotate(45deg) translate(5px, 5px);
+  transform: rotate(45deg) translate(4px, 4px);
 }
 .menu-toggle.active .hamburger::after {
-  transform: rotate(-45deg) translate(5px, -5px);
+  transform: rotate(-45deg) translate(4px, -4px);
 }
+
 .container-navegacao {
-  padding: 15px;
-  background-color: #f0f0f0;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  max-width: 250px;
+  height: 15vh;
+  background-color: black;
+  backdrop-filter: blur(8px);
+  transition: right 0.35s ease-in-out;
+  z-index: 101;
   display: flex;
-  justify-content: center;
-  position: relative;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 20px 10px 10px 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  box-sizing: border-box;
 }
-.container-contatos .contact-image {
-  filter: brightness(0);
+
+.container-navegacao.active {
+  right: 0;
+}
+.close-menu-btn {
+  display: block;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: transform 0.2s ease, color 0.2s ease;
+  z-index: 102;
+}
+.close-menu-btn:hover {
+  transform: scale(1.1);
+  color: #ff4d4d;
 }
 .nav-menu {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
-  gap: 50px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
 }
 .nav-menu a {
-  font-size: 1.2em;
+  font-size: 1em;
   text-decoration: none;
-  color: black;
-  transition: color 0.3s ease;
-  padding: 0 20px 5px 20px;
-  border-bottom: 2px solid transparent;
+  color: white;
+  padding: 8px; /* Padding simplificado para um visual mais limpo */
+  border-radius: 6px;
+  transition: background 0.3s, color 0.3s;
+  text-align: left;
+  width: 100%;
+  display: block;
 }
 .nav-menu a:hover {
-  color: #f0f0f0;
-  border-bottom: 2px solid #f0f0f0;
-}
-.close-menu-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 2.5rem;
-  background-color: #f0f0f0;
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: transform 0.2s ease, color 0.2s ease;
-}
-.close-menu-btn:hover {
-  transform: scale(1.1);
-  color: #f0f0f0;
+  background-color: white;
+  color: black;
+  border-bottom: none;
 }
 .menu-logo {
   display: none;
-  max-width: 80px;
-  margin: 0 auto 20px;
 }
 .container-quem-somos,
 .container-servicos,
 .container-contatos,
-.container-servicos-contactos {
-  padding: 40px;
-  margin-bottom: 60px;
+.container-servicos-contactos,
+.faq-section {
+  padding: 30px 15px;
+  margin-bottom: 30px;
 }
 .container-quem-somos {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 20px;
 }
 .container-quem-somos .servico {
   background-color: white;
-  width: 30%;
-  min-width: 280px;
-  padding: 40px;
+  width: 100%;
+  padding: 20px;
   border-radius: 10px;
   text-align: center;
   transition: transform 0.3s ease;
@@ -156,16 +173,16 @@ main {
 }
 .container-quem-somos .icone {
   margin-bottom: 15px;
-  max-width: 60px;
+  max-width: 50px;
 }
 .service-image,
 .contact-image {
-  max-width: 200px;
+  max-width: 120px;
   margin-bottom: 20px;
   border-radius: 10px;
 }
 .servico-texto {
-  font-size: 1.1em;
+  font-size: 1em;
   color: black;
   line-height: 1.6;
 }
@@ -176,13 +193,16 @@ main {
 .container-servicos {
   text-align: center;
 }
+.container-servicos h1,
+.container-contatos h1 {
+  font-size: 1.8em;
+  margin-bottom: 30px;
+}
 .container-servicos h1 {
-  font-size: 2.5em;
   background-color: rgba(226, 226, 226, 0.171);
-  margin-bottom: 40px;
 }
 .servico-card {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   transition: transform 0.3s ease, background-color 0.3s ease;
   background-color: white;
   padding: 20px;
@@ -191,28 +211,25 @@ main {
 }
 .servico-card:hover {
   transform: translateY(-5px);
-  background-color: white;
 }
 .container-servicos h3 {
   background-color: white;
   margin: 20px auto;
-  padding: 20px;
-  border-left: 5px solid white;
+  padding: 15px;
+  border-top: 4px solid #f0f0f0;
+  border-left: none;
   border-radius: 5px;
-  max-width: 800px;
   text-align: left;
 }
 .container-contatos {
   text-align: center;
   background-color: #f0f0f0;
-  padding: 40px;
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgb(255, 253, 253);
+  padding: 30px;
+  margin: 0 20px;
 }
 .container-contatos h1 {
-  font-size: 2.5em;
   color: black;
-  margin-bottom: 40px;
 }
 .container-contatos h3 {
   margin: 20px auto;
@@ -221,7 +238,6 @@ main {
   border-top: 1px solid #d8cece8f;
   border-bottom: 1px solid #d8cece8f;
   border-radius: 5px;
-  max-width: 600px;
   text-align: center;
 }
 .container-contatos p a {
@@ -236,48 +252,46 @@ main {
 .container-contatos p {
   list-style-position: inside;
   text-align: left;
-  max-width: 780px;
   margin: 0 auto;
-  padding-left: 20px;
+  padding-left: 0;
   display: inline-block;
+  width: 100%;
 }
 .container-servicos li {
-  margin: 15px 0;
+  margin: 10px 0;
   color: #666;
   line-height: 1.5;
 }
 .container-servicos-contactos {
   background-color: rgb(224, 245, 244);
-  padding: 60px 40px;
   text-align: center;
-  max-width: 800px;
-  margin: 0 auto 60px auto;
+  max-width: 95%;
+  margin: 0 auto 30px auto;
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgb(224, 245, 244);
 }
 .container-servicos-contactos h1 {
-  font-size: 1.8em;
-  background-color: rgb(224, 245, 244);
+  font-size: 1.4em;
+  background-color: inherit;
   margin-bottom: 20px;
   line-height: 1.4;
 }
 .botoes-servicos-contactos .botao {
-  display: inline-block;
+  display: block;
   text-decoration: none;
-  font-size: 1.1em;
+  font-size: 1em;
   background-color: rgba(255, 253, 253, 0.699);
-  padding: 5px 10px;
-  margin: 7px;
+  padding: 12px 20px;
+  margin: 10px 0;
   border-radius: 5px;
   transition: all 0.3s ease;
+  width: 100%;
 }
 .botoes-servicos-contactos .botao:hover {
-  background-color: rgba(255, 253, 253, 0.699);
   transform: scale(1.05);
 }
 .animate-on-scroll {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(20px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 .animate-on-scroll.fade-in {
@@ -285,32 +299,32 @@ main {
   transform: translateY(0);
 }
 footer.animate-footer {
-  padding: 10px;
+  padding: 15px;
   text-align: center;
   background-color: #f0f0f0;
   margin: 0 10px;
+  font-size: 0.9em;
 }
 .carousel-container {
   width: 100%;
-  max-width: 800px;
+  max-width: 90%;
   margin: 40px auto;
   overflow: hidden;
   position: relative;
 }
 .carousel-track {
   display: flex;
-  width: 100%;
   transition: transform 0.5s ease-in-out;
 }
 .carousel-slide {
-  width: 33.333%;
+  width: 100%;
   text-align: center;
-  padding: 20px;
+  padding: 10px;
   flex-shrink: 0;
 }
 .client-image {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 15px;
@@ -318,7 +332,7 @@ footer.animate-footer {
 .testimonial {
   font-style: italic;
   color: #666;
-  font-size: 1.1em;
+  font-size: 1em;
 }
 .carousel-prev,
 .carousel-next {
@@ -340,8 +354,8 @@ footer.animate-footer {
 }
 .chatbot-container {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  bottom: 20px;
+  right: 20px;
   z-index: 1000;
 }
 #chatbot-toggle {
@@ -365,8 +379,8 @@ footer.animate-footer {
 #chatbot-window {
   display: none;
   position: fixed;
-  bottom: 100px;
-  right: 30px;
+  bottom: 90px;
+  right: 20px;
   width: 350px;
   max-width: 90vw;
   height: 450px;
@@ -430,8 +444,6 @@ footer.animate-footer {
 }
 .chatbot-input {
   display: flex;
-  flex-direction: row;
-  gap: 10px;
   padding: 10px;
   border-top: 1px solid #ddd;
   background-color: #fff;
@@ -442,19 +454,9 @@ footer.animate-footer {
   padding: 10px;
   border: 2px solid #4a90e2;
   border-radius: 4px;
-  margin-right: 8px;
   background-color: #fff;
   color: #333;
   font-size: 14px;
-  transition: all 0.3s ease;
-}
-#user-input:focus {
-  outline: none;
-  border-color: #357abd;
-  box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
-}
-#user-input::placeholder {
-  color: #999;
 }
 #send-message {
   padding: 8px 12px;
@@ -463,39 +465,29 @@ footer.animate-footer {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-#send-message:hover {
-  background-color: #357abd;
 }
 .faq-section {
-  padding: 40px;
-  margin: 0 auto 60px;
   background-color: rgb(224, 245, 244);
   border-radius: 10px;
-  max-width: 800px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  max-width: 95%;
+  margin: 0 auto 30px;
 }
 .faq-section h2 {
-  font-size: 2em;
+  font-size: 1.8em;
   color: black;
   margin-bottom: 20px;
   text-align: center;
 }
 .faq-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: 1fr;
+  gap: 15px;
   width: 100%;
-  max-width: 800px;
 }
 .faq-item {
   background-color: #fff;
   padding: 15px;
   border-radius: 10px;
-  transition: transform 0.3s ease;
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -503,9 +495,8 @@ footer.animate-footer {
   transform: translateY(-5px);
 }
 .faq-question {
-  font-size: 1.2em;
+  font-size: 1.1em;
   color: #333;
-  margin-bottom: 10px;
 }
 .faq-answer {
   font-size: 1em;
@@ -517,460 +508,64 @@ footer.animate-footer {
 .faq-item.active .faq-answer {
   display: block;
 }
-@media (max-width: 1200px) {
-  .container-cabecalho {
+.container-contatos .contact-image {
+  filter: brightness(0);
+}
+@media screen and (max-width: 900px) {
+  .container-navegacao {
+    max-width: 500px;
+    height: 40vh;
+  }
+}
+@media screen and (min-width: 700px) {
+  .container-cabecalho h3 {
+    font-size: 1.3em;
+  }
+  .container-quem-somos {
     flex-direction: row;
-    justify-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .container-quem-somos .servico {
+    width: 48%;
+  }
+  .container-servicos-contactos {
+    max-width: 80%;
+  }
+  .faq-section {
+    max-width: 80%;
+  }
+  .faq-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+@media (min-width: 430px) and (max-width: 932px) {
+  .container-navegacao {
+    max-width: 400px;
+    height: 30vh;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .container-cabecalho {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 40px;
   }
   .container-cabecalho .logo {
-    display: block;
-    margin-right: 10px;
-  }
-  .container-cabecalho h3 {
-    display: block;
-    margin-left: 10px;
-  }
-  .menu-toggle,
-  .close-menu-btn {
-    display: block;
-  }
-  .container-navegacao {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 75%;
-    max-width: 400px;
-    height: 40vh;
-    background-color: black;
-    backdrop-filter: blur(8px);
-    transition: right 0.35s ease-in-out;
-    z-index: 100;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 20px 20px 30px 20px;
-    box-sizing: border-box;
-    border-radius: 0 0 15px 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  }
-  .container-navegacao.active {
-    right: 0;
-  }
-  .close-menu-btn {
-    position: absolute;
-    top: 20px;
-    right: 35px;
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
-    background: none;
-    border: none;
-    transition: transform 0.2s ease, color 0.2s ease;
-  }
-  .close-menu-btn:hover {
-    transform: scale(1.1);
-    color: #ff4d4d;
-  }
-  .nav-menu {
-    flex-direction: column;
-    align-items: center;
-    height: auto;
-    gap: 40px;
-    margin-top: 50px;
-    margin-bottom: 10px;
-    width: 100%;
-  }
-  .nav-menu a {
-    font-size: 1.9em;
-    width: 95%;
-    padding: 15px 20px;
-    border-radius: 8px;
-    transition: background 0.3s, color 0.3s;
-    text-align: center;
-    box-sizing: border-box;
-    color: white;
-  }
-  .nav-menu a:hover {
-    background-color: white;
-    color: black;
-  }
-  .container-quem-somos,
-  .container-servicos,
-  .container-contatos,
-  .container-servicos-contactos {
-    padding: 15px 10px;
-    margin-bottom: 20px;
-  }
-  .container-quem-somos {
-    gap: 15px;
-  }
-  .container-quem-somos .servico {
-    width: 100%;
-    min-width: auto;
-    padding: 15px;
-    border-radius: 8px;
-  }
-  .container-quem-somos .icone {
-    max-width: 50px;
-  }
-  .service-image,
-  .contact-image {
-    max-width: 120px;
-  }
-  .servico-texto {
-    font-size: 0.95em;
-    line-height: 1.4;
-  }
-  .container-servicos h1,
-  .container-contatos h1 {
-    font-size: 1.8em;
-    margin-bottom: 25px;
-  }
-  .container-servicos h3 {
-    padding: 12px;
-    max-width: 100%;
-    text-align: center;
-    border-left: none;
-    border-top: 3px solid #d8cece8f;
-  }
-  .container-servicos ul,
-  .container-contatos p {
-    padding-left: 8px;
-    max-width: 100%;
-  }
-  .container-servicos li {
-    margin: 8px 0;
-    font-size: 0.9em;
-  }
-  .container-servicos-contactos {
-    max-width: 90%;
-    padding: 25px 15px;
-  }
-  .container-servicos-contactos h1 {
-    font-size: 1.4em;
-  }
-  .botoes-servicos-contactos .botao {
-    padding: 10px 25px;
-    font-size: 0.95em;
-    width: 100%;
-    margin: 8px 0;
-  }
-  .animate-on-scroll {
-    transform: translateY(15px);
-  }
-  footer.animate-footer {
-    padding: 15px 10px;
-    font-size: 0.85em;
-  }
-  .carousel-container {
-    max-width: 90%;
-  }
-  .carousel-slide {
-    padding: 10px;
-  }
-  .client-image {
-    width: 70px;
-    height: 70px;
-  }
-  .testimonial {
-    font-size: 0.95em;
-  }
-  .chatbot-container {
-    bottom: 15px;
-    right: 15px;
-  }
-  #chatbot-window {
-    width: 90vw;
-    height: 70vh;
-    bottom: 0;
-    right: 0;
-    border-radius: 0;
-  }
-  .chatbot-messages {
-    padding: 8px;
-  }
-  .chatbot-input {
-    padding: 6px;
-  }
-  #user-input {
-    font-size: 12px;
-    padding: 8px;
-  }
-  #send-message {
-    padding: 6px 8px;
-    font-size: 12px;
-  }
-  .faq-section {
-    padding: 15px;
-    max-width: 90%;
-    margin: 0 auto 20px;
-  }
-  .faq-container {
-    grid-template-columns: 1fr;
-  }
-  .faq-item {
-    padding: 10px;
-  }
-  .faq-question {
-    font-size: 1em;
-  }
-  .faq-answer {
-    font-size: 0.9em;
-  }
-}
-@media (min-width: 1000px) and (max-width: 1179px) {
-  .container-cabecalho h3 {
-    display: none;
-    background: none;
-    box-shadow: none;
-  }
-  .container-cabecalho {
-    background-color: black;
-    display: flex;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 1px solid black;
-  }
-  .container-cabecalho img {
-    max-width: 400px;
-    transition: transform 0.3s ease;
-    position: static;
-  }
-  .menu-toggle,
-  .close-menu-btn {
-    display: block;
-  }
-  .container-navegacao {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 75%;
-    max-width: 350px;
-    height: 30vh;
-    background-color: black;
-    backdrop-filter: blur(8px);
-    transition: right 0.35s ease-in-out;
-    z-index: 100;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    box-sizing: border-box;
-    border-radius: 0 0 15px 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  }
-  .container-navegacao.active {
-    right: 0;
-  }
-  .close-menu-btn {
-    position: absolute;
-    top: 20px;
-    right: 35px;
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
-    background: none;
-    border: none;
-    transition: transform 0.2s ease, color 0.2s ease;
-  }
-  .close-menu-btn:hover {
-    transform: scale(1.1);
-    color: #ff4d4d;
-  }
-  .nav-menu {
-    flex-direction: column;
-    align-items: center;
-    height: auto;
-    gap: 20px;
-    margin-top: 50px;
-    margin-bottom: 5px;
-    width: 100%;
-  }
-  .nav-menu a {
-    font-size: 1.9em;
-    width: 95%;
-    padding: 15px 20px;
-    border-radius: 8px;
-    transition: background 0.3s, color 0.3s;
-    text-align: center;
-    box-sizing: border-box;
-    color: white;
-  }
-  .nav-menu a:hover {
-    background-color: white;
-    color: black;
-    border-bottom: 2px solid transparent;
-  }
-  .container-cabecalho {
-    padding: 15px 20px;
-  }
-  .container-cabecalho img {
-    max-width: 60px;
-    display: block;
-  }
-  .menu-logo {
-    display: block;
-  }
-  .container-quem-somos,
-  .container-servicos,
-  .container-contatos,
-  .container-servicos-contactos {
-    padding: 15px 10px;
-    margin-bottom: 20px;
-  }
-  .container-quem-somos {
-    gap: 15px;
-  }
-  .container-quem-somos .servico {
-    width: 100%;
-    min-width: auto;
-    padding: 15px;
-    border-radius: 8px;
-    background: none;
-  }
-  .container-quem-somos .servico .h3 {
-    font-size: 1.3em;
-    margin-bottom: 10px;
-    box-shadow: none;
-    background: none;
-  }
-  .container-quem-somos .icone {
-    max-width: 50px;
-  }
-  .service-image,
-  .contact-image {
-    max-width: 120px;
-  }
-  .servico-texto {
-    font-size: 0.95em;
-    line-height: 1.4;
-  }
-  .container-servicos h1,
-  .container-contatos h1 {
-    font-size: 1.8em;
-    margin-bottom: 25px;
-  }
-  .container-servicos h3 {
-    padding: 12px;
-    max-width: 100%;
-    text-align: center;
-    border-left: none;
-    border-top: 3px solid rgb(255, 253, 253);
-  }
-  .container-servicos ul,
-  .container-contatos p {
-    padding-left: 8px;
-    max-width: 100%;
-  }
-  .container-servicos li {
-    margin: 8px 0;
-    font-size: 0.9em;
-  }
-  .container-servicos-contactos {
-    max-width: 90%;
-    padding: 25px 15px;
-  }
-  .container-servicos-contactos h1 {
-    font-size: 1.4em;
-  }
-  .botoes-servicos-contactos .botao {
-    padding: 10px 25px;
-    font-size: 0.95em;
-    width: 100%;
-    margin: 8px 0;
-  }
-  .animate-on-scroll {
-    transform: translateY(15px);
-    color: rgb(255, 253, 253);
-  }
-  footer.animate-footer {
-    padding: 15px 10px;
-    font-size: 0.85em;
-  }
-  .carousel-container {
-    max-width: 90%;
-  }
-  .carousel-slide {
-    padding: 10px;
-  }
-  .client-image {
-    width: 70px;
-    height: 70px;
-  }
-  .testimonial {
-    font-size: 0.95em;
-  }
-  .chatbot-container {
-    bottom: 15px;
-    right: 15px;
-  }
-  #chatbot-window {
-    width: 90vw;
-    height: 70vh;
-    bottom: 0;
-    right: 0;
-    border-radius: 0;
-  }
-  .chatbot-messages {
-    padding: 8px;
-  }
-  .chatbot-input {
-    padding: 6px;
-  }
-  #user-input {
-    font-size: 12px;
-    padding: 8px;
-  }
-  #send-message {
-    padding: 6px 8px;
-    font-size: 12px;
-  }
-  .faq-section {
-    padding: 15px;
-    max-width: 90%;
-    margin: 0 auto 20px;
-  }
-  .faq-container {
-    grid-template-columns: 1fr;
-  }
-  .faq-item {
-    padding: 10px;
-  }
-  .faq-question {
-    font-size: 1em;
-  }
-  .faq-answer {
-    font-size: 0.9em;
-  }
-}
-@media (min-width: 601px) and (max-width: 999px) {
-  .container-cabecalho {
-    flex-direction: row;
-    align-items: center;
-    padding: 15px 20px;
-  }
-  .menu-toggle {
-    margin-right: 15px;
+    max-width: 80px;
   }
   .container-cabecalho h3 {
     font-size: 1.5em;
-    color: black;
-    margin: 0;
-    display: inline;
+    margin: 10px 0 0 0;
   }
-  .container-cabecalho img {
-    max-width: 80px;
-    display: inline;
-    margin-right: 15px;
-  }
-}
-@media (min-width: 1201px) {
   .menu-toggle,
   .close-menu-btn {
-    display: none !important;
+    display: none;
+  }
+  .menu-logo {
+    display: none;
   }
   .container-navegacao {
     position: relative;
@@ -980,36 +575,100 @@ footer.animate-footer {
     backdrop-filter: none;
     flex-direction: row;
     justify-content: center;
-    padding: 20px;
-    left: 0;
-    transition: none;
+    padding: 15px 0;
+    right: 0;
+    box-shadow: none;
+    overflow-y: visible;
+    z-index: 1;
+    max-width: none;
   }
   .nav-menu {
     flex-direction: row;
-    gap: 50px;
+    gap: 40px;
     margin-top: 0;
+    width: auto;
+    justify-content: center;
   }
   .nav-menu a {
     font-size: 1.2em;
     width: auto;
-    padding: 0 20px 10px 20px;
+    padding: 0 10px 5px 10px;
     border-radius: 0;
     border-bottom: 2px solid transparent;
     background: transparent;
+    color: black;
   }
-  .nav-menu a:hover,
-  .nav-menu a:active,
-  .nav-menu a:focus {
+  .nav-menu a:hover {
+    color: #f00;
+    border-bottom: 2px solid #f00;
     background-color: transparent;
-    color: #2e6da4;
-    border-bottom: 2px solid #d8cece8f;
-    outline: none;
   }
-  .container-cabecalho {
+  .container-quem-somos,
+  .container-servicos,
+  .container-contatos,
+  .container-servicos-contactos,
+  .faq-section {
+    padding: 40px;
+    margin-bottom: 60px;
+  }
+  .container-quem-somos .servico {
+    width: 30%;
+    min-width: 280px;
+    padding: 40px;
+  }
+  .service-image,
+  .contact-image {
+    max-width: 200px;
+  }
+  .container-servicos h1,
+  .container-contatos h1,
+  .faq-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+  }
+  .container-servicos h3 {
+    border-left: 5px solid white;
+    border-top: none;
+    max-width: 800px;
+    padding: 20px;
+  }
+  .container-contatos {
+    padding: 40px;
+  }
+  .container-contatos h3 {
+    max-width: 600px;
+  }
+  .container-servicos ul,
+  .container-contatos p {
+    max-width: 780px;
+  }
+  .container-servicos-contactos {
+    max-width: 800px;
+    padding: 60px 40px;
+    margin: 0 auto 60px auto;
+  }
+  .container-servicos-contactos h1 {
+    font-size: 1.8em;
+  }
+  .botoes-servicos-contactos {
+    display: flex;
     justify-content: center;
+    gap: 15px;
   }
-  .container-cabecalho img {
-    display: block;
-    margin: 0 auto;
+  .botoes-servicos-contactos .botao {
+    display: inline-block;
+    width: auto;
+    padding: 5px 10px;
+    margin: 7px;
+  }
+  .carousel-slide {
+    width: 33.333%;
+  }
+  .faq-container {
+    max-width: 800px;
+  }
+  #chatbot-window {
+    bottom: 100px;
+    right: 30px;
   }
 }
