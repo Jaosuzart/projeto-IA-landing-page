@@ -515,6 +515,7 @@ footer.animate-footer {
   .container-navegacao {
     max-width: 500px;
     height: 40vh;
+    padding-right: 50px;
   }
 }
 @media screen and (min-width: 700px) {
@@ -544,6 +545,7 @@ footer.animate-footer {
   .container-navegacao {
     max-width: 400px;
     height: 30vh;
+    padding-right: 50px;
   }
 }
 @media screen and (min-width: 1200px) {
