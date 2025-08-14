@@ -75,7 +75,6 @@ main {
 .menu-toggle.active .hamburger::after {
   transform: rotate(-45deg) translate(4px, -4px);
 }
-
 .container-navegacao {
   position: fixed;
   top: 0;
@@ -95,7 +94,6 @@ main {
   overflow-y: auto;
   box-sizing: border-box;
 }
-
 .container-navegacao.active {
   right: 0;
 }
@@ -466,30 +464,37 @@ footer.animate-footer {
   border-radius: 4px;
   cursor: pointer;
 }
+
+/* ======== SEÇÃO FAQ - AJUSTES COMEÇAM AQUI ======== */
+
 .faq-section {
   background-color: rgb(224, 245, 244);
-  border-radius: 10px;
-  max-width: 95%;
-  margin: 0 auto 30px;
+  border-radius: 5px;
+  margin: 0 auto 30px; /* AJUSTADO */
+  padding: 40px 0; /* AJUSTADO: Padding vertical, sem padding horizontal */
 }
 .faq-section h2 {
   font-size: 1.8em;
   color: black;
-  margin-bottom: 20px;
+  margin-bottom: 30px; /* AJUSTADO */
   text-align: center;
 }
 .faq-container {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 15px;
-  width: 100%;
+  gap: 20px; /* AJUSTADO */
+  padding: 0; /* AJUSTADO */
+  margin: 0 auto; /* AJUSTADO: Centraliza o container */
+  max-width: 90%; /* AJUSTADO: Garante margens laterais */
 }
 .faq-item {
   background-color: #fff;
-  padding: 15px;
+  padding: 20px;
   border-radius: 10px;
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+  text-align: left;
 }
 .faq-item:hover {
   transform: translateY(-5px);
@@ -533,144 +538,188 @@ footer.animate-footer {
   .container-servicos-contactos {
     max-width: 80%;
   }
-  .faq-section {
-    max-width: 80%;
-  }
   .faq-container {
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    max-width: 90%;
   }
-}
-@media (min-width: 430px) and (max-width: 932px) {
-  .container-navegacao {
-    max-width: 400px;
-    height: 30vh;
-    padding-right: 50px;
+  @media screen and (max-width: 900px) {
+    .container-navegacao {
+      max-width: 450px;
+      height: 40vh;
+      padding-right: 50px;
+    }
   }
-}
-@media screen and (min-width: 1200px) {
-  .container-cabecalho {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 15px 40px;
+  @media screen and (min-width: 700px) {
+    .container-cabecalho h3 {
+      font-size: 1.3em;
+    }
+    .container-quem-somos {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .container-quem-somos .servico {
+      width: 48%;
+    }
+    .container-servicos-contactos {
+      max-width: 80%;
+    }
+    .faq-section {
+      max-width: 80%;
+    }
+    .faq-container {
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
   }
-  .container-cabecalho .logo {
-    max-width: 80px;
+  @media (min-width: 430px) and (max-width: 932px) {
+    .container-navegacao {
+      max-width: 400px;
+      height: 20vh;
+    }
   }
-  .container-cabecalho h3 {
-    font-size: 1.5em;
-    margin: 10px 0 0 0;
+  @media screen and (min-width: 1200px) {
+    .container-cabecalho {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 40px;
+    }
+    .container-cabecalho .logo {
+      max-width: 80px;
+    }
+    .container-cabecalho h3 {
+      font-size: 1.5em;
+      margin: 10px 0 0 0;
+    }
+    .menu-toggle,
+    .close-menu-btn {
+      display: none;
+    }
+    .menu-logo {
+      display: none;
+    }
+    .container-navegacao {
+      position: relative;
+      height: auto;
+      width: 100%;
+      background-color: #f0f0f0;
+      backdrop-filter: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 0;
+      right: 0;
+      box-shadow: none;
+      overflow-y: visible;
+      z-index: 1;
+      max-width: none;
+    }
+    .nav-menu {
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+      margin-top: 0;
+      width: auto;
+      justify-content: center;
+    }
+    .nav-menu a {
+      font-size: 1.2em;
+      width: auto;
+      padding: 0 10px 5px 10px;
+      border-radius: 0;
+      border-bottom: 2px solid transparent;
+      background: transparent;
+      color: black;
+    }
+    .nav-menu a:hover {
+      color: #f00;
+      border-bottom: 2px solid #f00;
+      background-color: transparent;
+    }
+    .container-quem-somos,
+    .container-servicos,
+    .container-contatos,
+    .container-servicos-contactos,
+    .faq-section {
+      padding: 40px;
+      margin-bottom: 60px;
+    }
+    .container-quem-somos .servico {
+      width: 30%;
+      min-width: 280px;
+      padding: 40px;
+    }
+    .service-image,
+    .contact-image {
+      max-width: 200px;
+    }
+    .container-servicos h1,
+    .container-contatos h1,
+    .faq-section h2 {
+      font-size: 2.5em;
+      margin-bottom: 40px;
+    }
+    .container-servicos h3 {
+      border-left: 5px solid white;
+      border-top: none;
+      max-width: 800px;
+      padding: 20px;
+    }
+    .container-contatos {
+      padding: 40px;
+    }
+    .container-contatos h3 {
+      max-width: 600px;
+    }
+    .container-servicos ul,
+    .container-contatos p {
+      max-width: 780px;
+    }
+    .container-servicos-contactos {
+      max-width: 800px;
+      padding: 60px 40px;
+      margin: 0 auto 60px auto;
+    }
+    .container-servicos-contactos h1 {
+      font-size: 1.8em;
+    }
+    .botoes-servicos-contactos {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .botoes-servicos-contactos .botao {
+      display: inline-block;
+      width: auto;
+      padding: 5px 10px;
+      margin: 7px;
+    }
+    .carousel-slide {
+      width: 33.333%;
+    }
+    .faq-container {
+      max-width: 800px;
+    }
+    #chatbot-window {
+      bottom: 100px;
+      right: 30px;
+    }
   }
-  .menu-toggle,
-  .close-menu-btn {
-    display: none;
-  }
-  .menu-logo {
-    display: none;
-  }
-  .container-navegacao {
-    position: relative;
-    height: auto;
-    width: 100%;
-    background-color: #f0f0f0;
-    backdrop-filter: none;
-    flex-direction: row;
-    justify-content: center;
-    padding: 15px 0;
-    right: 0;
-    box-shadow: none;
-    overflow-y: visible;
-    z-index: 1;
-    max-width: none;
-  }
-  .nav-menu {
-    flex-direction: row;
-    gap: 40px;
-    margin-top: 0;
-    width: auto;
-    justify-content: center;
-  }
-  .nav-menu a {
-    font-size: 1.2em;
-    width: auto;
-    padding: 0 10px 5px 10px;
-    border-radius: 0;
-    border-bottom: 2px solid transparent;
-    background: transparent;
-    color: black;
-  }
-  .nav-menu a:hover {
-    color: #f00;
-    border-bottom: 2px solid #f00;
-    background-color: transparent;
-  }
-  .container-quem-somos,
-  .container-servicos,
-  .container-contatos,
-  .container-servicos-contactos,
   .faq-section {
-    padding: 40px;
-    margin-bottom: 60px;
-  }
-  .container-quem-somos .servico {
-    width: 30%;
-    min-width: 280px;
-    padding: 40px;
-  }
-  .service-image,
-  .contact-image {
-    max-width: 200px;
-  }
-  .container-servicos h1,
-  .container-contatos h1,
-  .faq-section h2 {
-    font-size: 2.5em;
-    margin-bottom: 40px;
-  }
-  .container-servicos h3 {
-    border-left: 5px solid white;
-    border-top: none;
-    max-width: 800px;
-    padding: 20px;
-  }
-  .container-contatos {
-    padding: 40px;
-  }
-  .container-contatos h3 {
-    max-width: 600px;
-  }
-  .container-servicos ul,
-  .container-contatos p {
-    max-width: 780px;
-  }
-  .container-servicos-contactos {
-    max-width: 800px;
-    padding: 60px 40px;
-    margin: 0 auto 60px auto;
-  }
-  .container-servicos-contactos h1 {
-    font-size: 1.8em;
-  }
-  .botoes-servicos-contactos {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-  }
-  .botoes-servicos-contactos .botao {
-    display: inline-block;
-    width: auto;
-    padding: 5px 10px;
-    margin: 7px;
-  }
-  .carousel-slide {
-    width: 33.333%;
+    padding: 80px 40px;
+    margin-top: 30px;
   }
   .faq-container {
-    max-width: 800px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1200px;
+    padding: 0;
+    margin: 0 auto;
   }
-  #chatbot-window {
-    bottom: 100px;
-    right: 30px;
+  .faq-item {
+    padding: 25px;
   }
 }
