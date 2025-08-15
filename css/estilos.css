@@ -80,7 +80,7 @@ main {
   position: fixed;
   top: 0;
   right: -100%;
-  max-width: 300px; /* Aumentado para dar mais espaço */
+  max-width: 300px;
   height: 15vh;
   background-color: black;
   backdrop-filter: blur(8px);
@@ -90,7 +90,7 @@ main {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 60px 40px 40px 40px; /* Aumentado significativamente para mais "respiro" (espaço) na seção do menu */
+  padding: 60px 40px 40px 40px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   overflow-y: auto;
   box-sizing: border-box;
@@ -103,8 +103,8 @@ main {
 .close-menu-btn {
   display: block;
   position: absolute;
-  top: 20px; /* Aumentado para mais respiro */
-  right: 20px; /* Aumentado para mais respiro */
+  top: 20px;
+  right: 20px;
   font-size: 1.8rem;
   font-weight: bold;
   color: white;
@@ -240,7 +240,7 @@ main {
   border-left: none;
   border-radius: 5px;
   text-align: left;
-  font-size: 1.4em; /* Aumentado para melhor legibilidade */
+  font-size: 1.4em;
 }
 
 .container-contatos {
@@ -263,7 +263,7 @@ main {
   border-bottom: 1px solid #d8cece8f;
   border-radius: 5px;
   text-align: center;
-  font-size: 1.4em; /* Aumentado para melhor legibilidade */
+  font-size: 1.4em;
 }
 
 .container-contatos p a {
@@ -375,7 +375,7 @@ footer.animate-footer {
 .testimonial {
   font-style: italic;
   color: #666;
-  font-size: 2.4vh;
+  font-size: 2.1vh;
 }
 
 .carousel-prev,
