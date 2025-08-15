@@ -1,192 +1,111 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const chatbotToggle = document.getElementById("chatbot-toggle");
-  const chatbotWindow = document.getElementById("chatbot-window");
-  const closeChatbot = document.getElementById("close-chatbot");
-  const userInput = document.getElementById("user-input");
-  const sendMessage = document.getElementById("send-message");
-  const chatbotMessages = document.getElementById("chatbot-messages");
+// Menu Hambúrguer
+const menuToggle = document.getElementById("menu-toggle");
+const navMenu = document.getElementById("nav-menu");
+const closeMenuBtn = document.getElementById("close-menu-btn");
 
-  chatbotToggle.addEventListener("click", () => {
-    chatbotWindow.classList.toggle("active");
-  });
+menuToggle.addEventListener("click", () => {
+  navMenu.classList.toggle("active");
+  menuToggle.classList.toggle("active");
+});
 
-  closeChatbot.addEventListener("click", () => {
-    chatbotWindow.classList.remove("active");
-  });
+closeMenuBtn.addEventListener("click", () => {
+  navMenu.classList.remove("active");
+  menuToggle.classList.remove("active");
+});
 
-  const apiResponses = {
-    "quem somos": `
-            Somos especialistas em <strong>Inteligência Artificial (AI)</strong>. 
-            Trabalhamos para encontrar soluções tecnologicamente inteligentes para todas as áreas empresariais. 
-            Nossos laboratórios são os mais modernos da atualidade e nossos colaboradores são os técnicos mais experientes do mercado.
-        `,
-    serviços: `
-            Nossos serviços incluem:
-            - <strong>Soluções de Machine Learning</strong>: Análise preditiva, sistemas de recomendação, modelos de classificação.
-            - <strong>Visão Computacional</strong>: Reconhecimento facial, análise de imagens, automação de tarefas.
-            - <strong>Processamento de Linguagem Natural (PLN)</strong>: Chatbots, análise de sentimento, tradução automática.
-        `,
-    contato: `
-            Entre em contato conosco:
-            - Email: email@ia.com
-            - Telefone: +55 71 91234-5678
-        `,
-  };
+// Animações on Scroll
+const animateElements = document.querySelectorAll(".animate-on-scroll");
 
-  sendMessage.addEventListener("click", () => {
-    const message = userInput.value.trim().toLowerCase();
-    if (message) {
-      const userMsg = document.createElement("div");
-      userMsg.classList.add("message", "user-message");
-      userMsg.textContent = message;
-      chatbotMessages.appendChild(userMsg);
-      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-
-      setTimeout(() => {
-        const response =
-          apiResponses[message] ||
-          'Desculpe, não entendi. Tente "Quem somos", "Serviços" ou "Contato".';
-        const botMsg = document.createElement("div");
-        botMsg.classList.add("message", "bot-message");
-        botMsg.innerHTML = response;
-        chatbotMessages.appendChild(botMsg);
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-      }, 500);
-
-      userInput.value = "";
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("fade-in");
     }
   });
+});
 
-  userInput.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") {
-      sendMessage.click();
+animateElements.forEach((el) => observer.observe(el));
+
+// Carousel
+const carouselTrack = document.querySelector(".carousel-track");
+const carouselSlides = Array.from(carouselTrack.children);
+const prevBtn = document.querySelector(".carousel-prev");
+const nextBtn = document.querySelector(".carousel-next");
+
+let currentIndex = 0;
+
+const moveToSlide = (index) => {
+  const slideWidth = carouselSlides[0].getBoundingClientRect().width;
+  carouselTrack.style.transform = `translateX(-${index * slideWidth}px)`;
+};
+
+nextBtn.addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % carouselSlides.length;
+  moveToSlide(currentIndex);
+});
+
+prevBtn.addEventListener("click", () => {
+  currentIndex =
+    (currentIndex - 1 + carouselSlides.length) % carouselSlides.length;
+  moveToSlide(currentIndex);
+});
+
+// Chatbot
+const chatbotToggle = document.getElementById("chatbot-toggle");
+const chatbotWindow = document.getElementById("chatbot-window");
+const closeChatbot = document.getElementById("close-chatbot");
+const userInput = document.getElementById("user-input");
+const sendMessage = document.getElementById("send-message");
+const chatbotMessages = document.getElementById("chatbot-messages");
+
+chatbotToggle.addEventListener("click", () => {
+  chatbotWindow.classList.toggle("active");
+});
+
+closeChatbot.addEventListener("click", () => {
+  chatbotWindow.classList.remove("active");
+});
+
+const addMessage = (text, className) => {
+  const message = document.createElement("div");
+  message.classList.add("message", className);
+  message.textContent = text;
+  chatbotMessages.appendChild(message);
+  chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+};
+
+sendMessage.addEventListener("click", () => {
+  const input = userInput.value.trim();
+  if (input) {
+    addMessage(input, "user-message");
+    userInput.value = "";
+    let response =
+      'Desculpe, não entendi. Tente "Quem somos", "Serviços" ou "Contato".';
+    if (input.toLowerCase().includes("quem somos")) {
+      response =
+        "Somos especialistas em Inteligência Artificial (AI). Trabalhamos para encontrar soluções tecnologicamente inteligentes para todas as áreas empresariais.";
+    } else if (input.toLowerCase().includes("serviços")) {
+      response =
+        "Oferecemos soluções de Machine Learning, Visão Computacional e Processamento de Linguagem Natural.";
+    } else if (input.toLowerCase().includes("contato")) {
+      response =
+        "Entre em contato via email: email@ia.com ou telefone: +55 71 91234-5678.";
     }
-  });
-
-  const menuToggle = document.getElementById("menu-toggle");
-  const navMenu = document.getElementById("nav-menu");
-  const closeMenuBtn = document.getElementById("close-menu-btn");
-
-  menuToggle.addEventListener("click", () => {
-    navMenu.classList.add("active");
-  });
-
-  closeMenuBtn.addEventListener("click", () => {
-    navMenu.classList.remove("active");
-  });
-  const navLinks = document.querySelectorAll(".nav-menu a");
-  navLinks.forEach((link) => {
-    link.addEventListener("click", closeMenuBtn);
-  });
-
-  const animateOnScrollElements =
-    document.querySelectorAll(".animate-on-scroll");
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("fade-in");
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
-  animateOnScrollElements.forEach((element) => observer.observe(element));
-
-  const carouselTrack = document.querySelector(".carousel-track");
-  const carouselSlides = document.querySelectorAll(".carousel-slide");
-  const prevButton = document.querySelector(".carousel-prev");
-  const nextButton = document.querySelector(".carousel-next");
-
-  if (carouselTrack && carouselSlides.length > 0) {
-    let currentIndex = 0;
-    const totalSlides = carouselSlides.length;
-
-    // Clonar slides para loop infinito
-    carouselSlides.forEach((slide) => {
-      const clone = slide.cloneNode(true);
-      carouselTrack.appendChild(clone);
-    });
-
-    const updateCarousel = () => {
-      const itemWidth = carouselSlides[0].clientWidth;
-      carouselTrack.style.transform = `translateX(-${
-        currentIndex * itemWidth
-      }px)`;
-      carouselTrack.style.transition = "transform 0.5s ease-in-out";
-    };
-
-    const resetCarousel = () => {
-      currentIndex = 0;
-      carouselTrack.style.transition = "none";
-      carouselTrack.style.transform = "translateX(0)";
-      setTimeout(() => {
-        carouselTrack.style.transition = "transform 0.5s ease-in-out";
-      }, 50);
-    };
-
-    nextButton.addEventListener("click", () => {
-      if (currentIndex < totalSlides - 1) {
-        currentIndex++;
-      } else {
-        currentIndex = 0;
-        setTimeout(resetCarousel, 500);
-      }
-      updateCarousel();
-    });
-
-    prevButton.addEventListener("click", () => {
-      if (currentIndex > 0) {
-        currentIndex--;
-      } else {
-        currentIndex = totalSlides - 1;
-        carouselTrack.style.transition = "none";
-        carouselTrack.style.transform = `translateX(-${
-          totalSlides * carouselSlides[0].clientWidth
-        }px)`;
-        setTimeout(() => {
-          currentIndex = totalSlides - 1;
-          carouselTrack.style.transition = "transform 0.5s ease-in-out";
-          updateCarousel();
-        }, 50);
-      }
-      updateCarousel();
-    });
-
-    let autoPlay = setInterval(() => {
-      if (currentIndex < totalSlides - 1) {
-        currentIndex++;
-      } else {
-        setTimeout(resetCarousel, 500);
-        currentIndex = 0;
-      }
-      updateCarousel();
-    }, 3000);
-
-    carouselTrack.addEventListener("mouseover", () => {
-      clearInterval(autoPlay);
-    });
-
-    carouselTrack.addEventListener("mouseout", () => {
-      autoPlay = setInterval(() => {
-        if (currentIndex < totalSlides - 1) {
-          currentIndex++;
-        } else {
-          setTimeout(resetCarousel, 500);
-          currentIndex = 0;
-        }
-        updateCarousel();
-      }, 3000);
-    });
-
-    window.addEventListener("resize", () => {
-      updateCarousel();
-    });
+    setTimeout(() => addMessage(response, "bot-message"), 500);
   }
 });
-document.querySelectorAll(".faq-question").forEach((question) => {
-  question.addEventListener("click", () => {
-    const item = question.parentElement;
+
+userInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    sendMessage.click();
+  }
+});
+
+// FAQ Accordions
+const faqItems = document.querySelectorAll(".faq-item");
+
+faqItems.forEach((item) => {
+  item.addEventListener("click", () => {
     item.classList.toggle("active");
   });
 });
