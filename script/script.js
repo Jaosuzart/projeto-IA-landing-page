@@ -25,29 +25,33 @@ const observer = new IntersectionObserver((entries) => {
 
 animateElements.forEach((el) => observer.observe(el));
 
-// Carousel
 const carouselTrack = document.querySelector(".carousel-track");
-const carouselSlides = Array.from(carouselTrack.children);
-const prevBtn = document.querySelector(".carousel-prev");
-const nextBtn = document.querySelector(".carousel-next");
 
-let currentIndex = 0;
+if (carouselTrack) {
+  const carouselSlides = Array.from(carouselTrack.children);
+  const prevBtn = document.querySelector(".carousel-prev");
+  const nextBtn = document.querySelector(".carousel-next");
 
-const moveToSlide = (index) => {
-  const slideWidth = carouselSlides[0].getBoundingClientRect().width;
-  carouselTrack.style.transform = `translateX(-${index * slideWidth}px)`;
-};
+  let currentIndex = 0;
 
-nextBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % carouselSlides.length;
-  moveToSlide(currentIndex);
-});
+  const moveToSlide = (index) => {
+    if (carouselSlides.length > 0) {
+      const slideWidth = carouselSlides[0].getBoundingClientRect().width;
+      carouselTrack.style.transform = `translateX(-${index * slideWidth}px)`;
+    }
+  };
 
-prevBtn.addEventListener("click", () => {
-  currentIndex =
-    (currentIndex - 1 + carouselSlides.length) % carouselSlides.length;
-  moveToSlide(currentIndex);
-});
+  nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % carouselSlides.length;
+    moveToSlide(currentIndex);
+  });
+
+  prevBtn.addEventListener("click", () => {
+    currentIndex =
+      (currentIndex - 1 + carouselSlides.length) % carouselSlides.length;
+    moveToSlide(currentIndex);
+  });
+}
 
 // Chatbot
 const chatbotToggle = document.getElementById("chatbot-toggle");
@@ -73,7 +77,6 @@ const addMessage = (text, className) => {
   chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
 };
 
-// Função API simulada para respostas (síncrona, sem async)
 function apiGetResponse(query) {
   const lowerQuery = query.toLowerCase();
 
