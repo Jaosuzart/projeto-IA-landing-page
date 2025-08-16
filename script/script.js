@@ -73,23 +73,34 @@ const addMessage = (text, className) => {
   chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
 };
 
+// Função API simulada para respostas (síncrona, sem async)
+function apiGetResponse(query) {
+  const lowerQuery = query.toLowerCase();
+
+  if (lowerQuery.includes("quem somos")) {
+    return "Somos especialistas em Inteligência Artificial (AI). Trabalhamos para encontrar soluções tecnologicamente inteligentes para todas as áreas empresariais.";
+  } else if (
+    lowerQuery.includes("serviços") ||
+    lowerQuery.includes("servicos") ||
+    lowerQuery.includes("nossos serviços")
+  ) {
+    return "Oferecemos soluções de Machine Learning, Visão Computacional e Processamento de Linguagem Natural.";
+  } else if (
+    lowerQuery.includes("contato") ||
+    lowerQuery.includes("contatos")
+  ) {
+    return "Entre em contato via email: email@ia.com ou telefone: +55 71 91234-5678.";
+  } else {
+    return 'Desculpe, não entendi. Tente "Quem somos", "Serviços" ou "Contato".';
+  }
+}
+
 sendMessage.addEventListener("click", () => {
   const input = userInput.value.trim();
   if (input) {
     addMessage(input, "user-message");
     userInput.value = "";
-    let response =
-      'Desculpe, não entendi. Tente "Quem somos", "Serviços" ou "Contato".';
-    if (input.toLowerCase().includes("quem somos")) {
-      response =
-        "Somos especialistas em Inteligência Artificial (AI). Trabalhamos para encontrar soluções tecnologicamente inteligentes para todas as áreas empresariais.";
-    } else if (input.toLowerCase().includes("serviços")) {
-      response =
-        "Oferecemos soluções de Machine Learning, Visão Computacional e Processamento de Linguagem Natural.";
-    } else if (input.toLowerCase().includes("contato")) {
-      response =
-        "Entre em contato via email: email@ia.com ou telefone: +55 71 91234-5678.";
-    }
+    const response = apiGetResponse(input);
     setTimeout(() => addMessage(response, "bot-message"), 500);
   }
 });
