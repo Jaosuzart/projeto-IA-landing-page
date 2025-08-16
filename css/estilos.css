@@ -135,7 +135,7 @@ main {
   font-size: 1em;
   text-decoration: none;
   color: white;
-  padding: 8px; /* Padding simplificado para um visual mais limpo */
+  padding: 8px;
   border-radius: 6px;
   transition: background 0.3s, color 0.3s;
   text-align: left;
@@ -195,7 +195,7 @@ main {
 }
 
 .servico-texto {
-  font-size: 1.2em; /* Aumentado para melhor legibilidade */
+  font-size: 1.2em;
   color: black;
   line-height: 1.6;
 }
@@ -284,14 +284,14 @@ main {
   padding-left: 0;
   display: inline-block;
   width: 100%;
-  font-size: 1.2em; /* Aumentado para melhor legibilidade */
+  font-size: 1.2em;
 }
 
 .container-servicos li {
   margin: 10px 0;
   color: #666;
   line-height: 1.5;
-  font-size: 1.2em; /* Aumentado para melhor legibilidade */
+  font-size: 1.2em;
 }
 
 .container-servicos-contactos {
@@ -532,33 +532,36 @@ footer.animate-footer {
   background-color: rgb(224, 245, 244);
   border-radius: 5px;
   margin: 0 auto 30px;
-  padding: 40px 0;
+  padding: 40px 15px;
+  margin-top: 30px;
 }
 
 .faq-section h2 {
   font-size: 1.8em;
   color: black;
-  margin-bottom: 30px; /* AJUSTADO */
+  margin-bottom: 30px;
   text-align: center;
 }
 
 .faq-container {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 25px;
   padding: 0;
   margin: 0 auto;
-  max-width: 90%;
+  max-width: 600px;
 }
 
 .faq-item {
   background-color: #fff;
-  padding: 20px;
+  padding: 25px;
   border-radius: 10px;
-  cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease;
   text-align: left;
+  overflow: hidden;
+  word-wrap: break-word;
+  position: relative;
 }
 
 .faq-item:hover {
@@ -568,56 +571,20 @@ footer.animate-footer {
 .faq-question {
   font-size: 1.3em;
   color: #333;
+  margin: 0;
+  position: relative;
 }
 
 .faq-answer {
   font-size: 1.2em;
   color: #666;
-  display: none;
-  margin-top: 10px;
+  overflow: hidden;
+  margin-top: 15px;
   line-height: 1.5;
-}
-
-.faq-item.active .faq-answer {
-  display: block;
 }
 
 .container-contatos .contact-image {
   filter: brightness(0);
-}
-
-@media screen and (max-width: 900px) {
-  .container-navegacao {
-    max-width: 500px;
-    height: 40vh;
-    padding-right: 50px;
-  }
-}
-
-@media screen and (min-width: 700px) {
-  .container-cabecalho h3 {
-    font-size: 1.3em;
-  }
-
-  .container-quem-somos {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .container-quem-somos .servico {
-    width: 48%;
-  }
-
-  .container-servicos-contactos {
-    max-width: 80%;
-  }
-
-  .faq-container {
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    max-width: 90%;
-  }
 }
 
 @media screen and (max-width: 900px) {
@@ -649,11 +616,13 @@ footer.animate-footer {
 
   .faq-section {
     max-width: 80%;
+    padding: 60px 20px;
   }
 
   .faq-container {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+    max-width: 90%;
   }
 }
 
@@ -807,29 +776,18 @@ footer.animate-footer {
     width: 33.333%;
   }
 
+  .faq-section {
+    padding: 80px 40px;
+  }
+
   .faq-container {
-    max-width: 800px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1200px;
   }
 
   #chatbot-window {
     bottom: 100px;
     right: 30px;
   }
-}
-
-.faq-section {
-  padding: 80px 40px;
-  margin-top: 30px;
-}
-
-.faq-container {
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-  max-width: 1200px;
-  padding: 0;
-  margin: 0 auto;
-}
-
-.faq-item {
-  padding: 25px;
 }

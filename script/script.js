@@ -1,4 +1,3 @@
-// Menu Hambúrguer
 const menuToggle = document.getElementById("menu-toggle");
 const navMenu = document.getElementById("nav-menu");
 const closeMenuBtn = document.getElementById("close-menu-btn");
@@ -100,12 +99,15 @@ userInput.addEventListener("keypress", (e) => {
     sendMessage.click();
   }
 });
-
-// FAQ Accordions
 const faqItems = document.querySelectorAll(".faq-item");
 
-faqItems.forEach((item) => {
-  item.addEventListener("click", () => {
-    item.classList.toggle("active");
+faqItems.forEach((clickedItem) => {
+  clickedItem.addEventListener("click", () => {
+    faqItems.forEach((item) => {
+      if (item !== clickedItem) {
+        item.classList.remove("active");
+      }
+    });
+    clickedItem.classList.toggle("active");
   });
 });
