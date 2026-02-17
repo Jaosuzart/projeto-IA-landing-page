@@ -24,9 +24,5 @@ Este projeto é uma landing page interativa que utiliza **HTML**, **CSS** e **Ja
 👉 [Clique aqui para visitar a landing page](https://projeto-ia-landing-page.vercel.app/index.html)
 
 ## 📸 Preview
-
-<img width="1440" height="900" alt="image" src="https://github.com/user-attachments/assets/065f4525-5a70-4e33-9de1-96027b3902f3" />
-
----
-
+<img width="1440" height="900" alt="image (5)" src="https://github.com/user-attachments/assets/ffc14c9f-ee4b-403e-b1b5-7a13e5ca5e36" />
 Feito com 💻 ♡por [João Marcelo]
